@@ -61,7 +61,12 @@ const WorkCard = styled.div`
   }
 `;
 
-const WorkImage = styled.img`
+const WorkImage = styled.img.attrs({
+  loading: 'lazy',
+  decoding: 'async',
+  width: '100%',
+  height: '300',
+})`
   width: 100%;
   height: 300px;
   object-fit: cover;

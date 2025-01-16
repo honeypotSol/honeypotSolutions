@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
+import JsonLd from './JsonLd';
 
 const HeroSection = styled.section`
   background-color: var(--primary-color);
@@ -35,6 +36,18 @@ const HeroButton = styled(animated.a)`
 `;
 
 const Hero = () => {
+  const heroSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Honeypot Solutions',
+    description: 'Innovative Software Development for Your Business',
+    url: 'https://honeypot-solutions.com',
+    potentialAction: {
+      '@type': 'ContactAction',
+      target: 'https://honeypot-solutions.com/#contact',
+    },
+  };
+
   const titleProps = useSpring({
     from: { opacity: 0, transform: 'translateY(-50px)' },
     to: { opacity: 1, transform: 'translateY(0)' },
@@ -55,6 +68,7 @@ const Hero = () => {
 
   return (
     <HeroSection>
+      <JsonLd data={heroSchema} />
       <div className='container'>
         <HeroTitle style={titleProps}>Welcome to Honeypot Solutions</HeroTitle>
         <HeroSubtitle style={subtitleProps}>

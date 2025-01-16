@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import SEO from './SEO';
+import JsonLd from '../components/JsonLd';
 
 const ServicesSection = styled.section`
   background-color: #f8f8f8;
@@ -106,9 +107,25 @@ const AnimatedServiceCard = ({ children, index }) => {
   );
 };
 
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: services.map((service, index) => ({
+    '@type': 'Service',
+    position: index + 1,
+    name: service.title,
+    description: service.description,
+    provider: {
+      '@type': 'Organization',
+      name: 'Honeypot Solutions',
+    },
+  })),
+};
+
 const Services = () => {
   return (
     <ServicesSection>
+      <JsonLd data={servicesSchema} />
       <SEO
         title='Our Services - Honeypot Solutions'
         description='Explore our comprehensive software development services including web development, mobile apps, cloud solutions, and AI integration.'

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { FaBars } from 'react-icons/fa';
+import JsonLd from '../components/JsonLd';
 
 const Nav = styled.nav`
   background-color: rgba(255, 255, 255, 0.9);
@@ -89,6 +90,37 @@ const MenuButton = styled.button`
   }
 `;
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://honeypot-solutions.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Services',
+      item: 'https://honeypot-solutions.com#services',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Pricing',
+      item: 'https://honeypot-solutions.com#pricing',
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      name: 'Contact',
+      item: 'https://honeypot-solutions.com#contact',
+    },
+  ],
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -120,6 +152,7 @@ const Navbar = () => {
           : '0 2px 10px rgba(0, 0, 0, 0.1)',
       }}
     >
+      <JsonLd data={breadcrumbSchema} />
       <NavContainer>
         <Logo>Honeypot</Logo>
         <MenuButton onClick={toggleMenu}>

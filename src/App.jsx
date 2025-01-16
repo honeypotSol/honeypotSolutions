@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import ScrollAnimation from './components/ScrollAnimation';
 import OurWork from './components/OurWork';
 import SEO from './components/SEO';
+import JsonLd from './components/JsonLd';
 
 const AppContainer = styled.div`
   display: flex;
@@ -18,10 +19,48 @@ const AppContainer = styled.div`
   min-height: 100vh;
 `;
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Honeypot Solutions',
+  url: 'https://honeypot-solutions.com',
+  logo: 'https://honeypot-solutions.com/favicon.svg',
+  description:
+    'Innovative software development solutions including web development, mobile apps, cloud solutions, and AI integration for businesses.',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+  },
+  sameAs: [
+    'https://facebook.com/honeypot-solutions',
+    'https://twitter.com/honeypot',
+    'https://linkedin.com/company/honeypot-solutions',
+    'https://github.com/honeypot-solutions',
+  ],
+  offers: {
+    '@type': 'AggregateOffer',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Basic Plan',
+        price: '999',
+        priceCurrency: 'USD',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Pro Plan',
+        price: '2499',
+        priceCurrency: 'USD',
+      },
+    ],
+  },
+};
+
 function App() {
   return (
     <AppContainer>
       <SEO />
+      <JsonLd data={structuredData} />
       <Navbar />
       <Element name='home'>
         <Hero />
