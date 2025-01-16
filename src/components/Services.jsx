@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
+import SEO from './SEO';
 
 const ServicesSection = styled.section`
   background-color: #f8f8f8;
@@ -108,6 +109,11 @@ const AnimatedServiceCard = ({ children, index }) => {
 const Services = () => {
   return (
     <ServicesSection>
+      <SEO
+        title='Our Services - Honeypot Solutions'
+        description='Explore our comprehensive software development services including web development, mobile apps, cloud solutions, and AI integration.'
+        keywords='web development, mobile apps, cloud solutions, AI services'
+      />
       <div className='container'>
         <SectionTitle>Our Services</SectionTitle>
         <ServiceGrid>

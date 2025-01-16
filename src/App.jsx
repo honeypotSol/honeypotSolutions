@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollAnimation from './components/ScrollAnimation';
 import OurWork from './components/OurWork';
+import SEO from './components/SEO';
 
 const AppContainer = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const AppContainer = styled.div`
 function App() {
   return (
     <AppContainer>
+      <SEO />
       <Navbar />
       <Element name='home'>
         <Hero />
