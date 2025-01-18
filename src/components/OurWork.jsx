@@ -177,7 +177,7 @@ const works = [
     description: 'Gambling website with live betting',
     longDescription:
       'A comprehensive gambling platform featuring live betting, and real-time odds updates for one of the most popular streamers in the world',
-    image: '/public/img/Screenshot 2025-01-18 at 17.12.19.png',
+    image: '/img/Screenshot 2025-01-18 at 17.12.19.png',
     technologies: ['Next.js', 'Laravel', 'CSS', 'MariaDB'],
   },
   {
@@ -185,7 +185,7 @@ const works = [
     description: 'Redesigned e-commerce website',
     longDescription:
       'Redesigned e-commerce website with transaction on Arabic and French languages and payment processing',
-    image: '/public/img/Screenshot 2025-01-18 at 17.12.34.png',
+    image: '/img/Screenshot 2025-01-18 at 17.12.34.png',
     technologies: ['Next.js', 'Spring Boot', 'Tailwind'],
   },
   {
@@ -193,7 +193,7 @@ const works = [
     description: 'A secure and user-friendly mobile Fitness application.',
     longDescription:
       'Interactive fitness tracking application with workout plans, progress monitoring, and social features.',
-    image: '/public/img/Screenshot 2025-01-18 at 17.17.48.png',
+    image: '/img/Screenshot 2025-01-18 at 17.17.48.png',
     technologies: ['React Native', 'GraphQL'],
   },
   {
@@ -202,7 +202,7 @@ const works = [
       'Clean and modern website for a Carbon Fibre component manufacturer',
     longDescription:
       'MV Composites is a Carbon Fibre component manufacturer working within Formula 1, Automotive and Sports sectors.',
-    image: '/public/img/Screenshot 2025-01-18 at 17.39.37.png',
+    image: '/img/Screenshot 2025-01-18 at 17.39.37.png',
     technologies: ['Next.js', 'Sanity.io', 'Tailwind CSS'],
   },
 ];
