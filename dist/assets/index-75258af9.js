@@ -161,6 +161,7 @@ Error generating stack: `+o.message+`
 `,g2=F(Jr.p)`
   font-size: 1.5rem;
   margin-bottom: 2rem;
+  padding: 0 15px;
 `,y2=F(ld)`
   background-color: white;
   color: var(--primary-color);

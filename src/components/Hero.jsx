@@ -44,6 +44,7 @@ const HeroTitle = styled(animated.h1)`
 const HeroSubtitle = styled(animated.p)`
   font-size: 1.5rem;
   margin-bottom: 2rem;
+  padding: 0 15px;
 `;
 
 const HeroButton = styled(ScrollLink)`
