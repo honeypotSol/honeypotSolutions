@@ -55,9 +55,14 @@ const WorkCard = styled.div`
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-
+  position: relative;
+  height: 450px;
   &:hover {
     transform: translateY(-5px);
+
+    .overlay {
+      opacity: 1;
+    }
   }
 `;
 
@@ -101,6 +106,51 @@ const FadeWrapper = styled.div`
   }
 `;
 
+const WorkOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 140, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+`;
+
+const OverlayTitle = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+`;
+
+const OverlayDescription = styled.p`
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+`;
+
+const ViewProjectButton = styled.a`
+  background: white;
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--primary-color);
+    color: white;
+    border: 1px solid white;
+  }
+`;
+
 const AnimatedWorkCard = ({ children, index }) => {
   const [ref, inView] = useInView({
     threshold: 0.2,
@@ -123,26 +173,38 @@ const AnimatedWorkCard = ({ children, index }) => {
 
 const works = [
   {
-    title: 'E-commerce Platform',
-    description:
-      'A fully responsive online store with secure payment integration.',
-    image: '/images/work1.jpg', // Replace with your actual image paths
-    link: '#',
+    title: 'Gambling Website',
+    description: 'Gambling website with live betting',
+    longDescription:
+      'A comprehensive gambling platform featuring live betting, and real-time odds updates for one of the most popular streamers in the world',
+    image: '/public/img/Screenshot 2025-01-18 at 17.12.19.png',
+    technologies: ['Next.js', 'Laravel', 'CSS', 'MariaDB'],
   },
   {
-    title: 'AI-powered Chatbot',
-    description:
-      'An intelligent chatbot for customer support and lead generation.',
-    image: '/images/work2.jpg',
-    link: '#',
+    title: 'E-commerce Website',
+    description: 'Redesigned e-commerce website',
+    longDescription:
+      'Redesigned e-commerce website with transaction on Arabic and French languages and payment processing',
+    image: '/public/img/Screenshot 2025-01-18 at 17.12.34.png',
+    technologies: ['Next.js', 'Spring Boot', 'Tailwind'],
   },
   {
-    title: 'Mobile Banking App',
-    description: 'A secure and user-friendly mobile banking application.',
-    image: '/images/work3.jpg',
-    link: '#',
+    title: 'Fitness Mobile App',
+    description: 'A secure and user-friendly mobile Fitness application.',
+    longDescription:
+      'Interactive fitness tracking application with workout plans, progress monitoring, and social features.',
+    image: '/public/img/Screenshot 2025-01-18 at 17.17.48.png',
+    technologies: ['React Native', 'GraphQL'],
   },
-  // Add more projects as needed
+  {
+    title: 'Automobile Manufacturing Website',
+    description:
+      'Clean and modern website for a Carbon Fibre component manufacturer',
+    longDescription:
+      'MV Composites is a Carbon Fibre component manufacturer working within Formula 1, Automotive and Sports sectors.',
+    image: '/public/img/Screenshot 2025-01-18 at 17.39.37.png',
+    technologies: ['Next.js', 'Sanity.io', 'Tailwind CSS'],
+  },
 ];
 
 const OurWork = () => {
@@ -157,7 +219,7 @@ const OurWork = () => {
     fade: false,
     cssEase: 'ease-in-out',
     pauseOnHover: true,
-    arrows: false, // Explicitly disable arrows
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -190,6 +252,28 @@ const OurWork = () => {
                     <WorkTitle>{work.title}</WorkTitle>
                     <WorkDescription>{work.description}</WorkDescription>
                   </WorkContent>
+                  <WorkOverlay className='overlay'>
+                    <OverlayTitle>{work.title}</OverlayTitle>
+                    <OverlayDescription>
+                      {work.longDescription}
+                    </OverlayDescription>
+                    <div style={{ marginBottom: '1rem' }}>
+                      {work.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          style={{
+                            background: 'rgba(255,255,255,0.2)',
+                            padding: '0.25rem 0.75rem',
+                            borderRadius: '15px',
+                            margin: '0 0.25rem',
+                            fontSize: '0.9rem',
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </WorkOverlay>
                 </WorkCard>
               </AnimatedWorkCard>
             </WorkItem>

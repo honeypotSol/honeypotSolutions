@@ -14,6 +14,10 @@ const SectionTitle = styled.h2`
   text-align: center;
   margin-bottom: 2rem;
   color: var(--primary-color);
+
+  &:hover {
+    cursor: default;
+  }
 `;
 
 const ServiceGrid = styled.div`
@@ -25,7 +29,7 @@ const ServiceGrid = styled.div`
   padding: 0 2rem;
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
@@ -40,6 +44,10 @@ const ServiceCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 280px;
+
+  &:hover {
+    cursor: default;
+  }
 `;
 
 const ServiceIcon = styled.i`
@@ -76,14 +84,9 @@ const services = [
     description: 'Native and cross-platform mobile applications.',
   },
   {
-    icon: '🚀',
-    title: 'Cloud Solutions',
-    description: 'Scalable and secure cloud infrastructure.',
-  },
-  {
-    icon: '🤖',
-    title: 'AI & Machine Learning',
-    description: 'Intelligent solutions for your business challenges.',
+    icon: '📈',
+    title: 'Wordpress and Shopify Development',
+    description: 'Wordpress and Shopify websites for your business.',
   },
 ];
 

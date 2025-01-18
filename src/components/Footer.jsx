@@ -48,7 +48,8 @@ const Footer = () => {
       <div className='container'>
         <FooterContent>
           <Copyright>
-            &copy; 2023 Honeypot Solutions. All rights reserved.
+            &copy; {new Date().getFullYear()} Honeypot Solutions. All rights
+            reserved.
           </Copyright>
           <SocialLinks>
             <SocialLink href='#' target='_blank' rel='noopener noreferrer'>

@@ -89,28 +89,21 @@ const PlanFeature = styled.li`
   margin-bottom: 0.5rem;
 `;
 
-const GetStartedButton = styled.a`
-  background-color: white;
-  color: var(--primary-color);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: var(--secondary-color);
-    color: white;
-  }
+const OldPrice = styled.p`
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  color: #ffcccc;
+  margin-bottom: 0.5rem;
 `;
 
 const plans = [
   {
     name: 'Basic',
     icon: '🚀',
-    price: '$999',
+    price: '$500',
+    oldPrice: '$600',
     features: [
-      'Web Development',
+      'Wordpress Development',
       '5 Pages',
       'Responsive Design',
       '1 Month Support',
@@ -118,33 +111,35 @@ const plans = [
   },
   {
     name: 'Pro',
-    icon: '💼',
-    price: '$2,499',
+    icon: '👨‍💻',
+    price: '$50/h',
+    oldPrice: '$60/h',
     features: [
-      'Web & Mobile App',
+      'Web or Mobile App',
       'Unlimited Pages',
       'Responsive Design',
       'Custom Features',
-      '3 Months Support',
+      'Dedicated Engineer',
     ],
   },
   {
-    name: 'Enterprise',
-    icon: '🏢',
-    price: 'Custom',
+    name: 'Subscription',
+    icon: '💳',
+    price: '$5000/mo',
+    oldPrice: '$6000/mo',
     features: [
       'Full-Stack Solutions',
-      'AI & ML Integration',
-      'Cloud Infrastructure',
+      '1 active sprint per week',
+      'Weekly summary report',
       'Dedicated Team',
-      '12 Months Support',
+      'Pause or cancel anytime',
     ],
   },
 ];
 
 const Pricing = () => {
   return (
-    <PricingSection>
+    <PricingSection id='pricing'>
       <div className='container'>
         <SectionTitle>Our Pricing</SectionTitle>
         <PricingGrid>
@@ -157,15 +152,13 @@ const Pricing = () => {
                   <p>Hover to see pricing</p>
                 </PricingCardFront>
                 <PricingCardBack>
+                  <OldPrice>{plan.oldPrice}</OldPrice>
                   <PlanPrice>{plan.price}</PlanPrice>
                   <PlanFeatures>
                     {plan.features.map((feature, i) => (
                       <PlanFeature key={i}>{feature}</PlanFeature>
                     ))}
                   </PlanFeatures>
-                  <GetStartedButton href='#contact'>
-                    Get Started
-                  </GetStartedButton>
                 </PricingCardBack>
               </PricingCardInner>
             </PricingCard>

@@ -2,12 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import JsonLd from './JsonLd';
+import { Link as ScrollLink } from 'react-scroll';
 
 const HeroSection = styled.section`
   background-color: var(--primary-color);
   color: white;
   padding: 8rem 0 4rem;
   text-align: center;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), 0 100%);
+  padding-bottom: 150px;
+
+  &:hover {
+    cursor: default;
+  }
+
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 0 100%);
+    padding-bottom: 100px;
+    margin-bottom: -50px;
+  }
+
+  @media (max-width: 480px) {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), 0 100%);
+    padding-bottom: 80px;
+    margin-bottom: -30px;
+  }
+`;
+
+const HeroWrapper = styled.div`
+  background-color: #f8f8f8;
 `;
 
 const HeroTitle = styled(animated.h1)`
@@ -20,7 +46,7 @@ const HeroSubtitle = styled(animated.p)`
   margin-bottom: 2rem;
 `;
 
-const HeroButton = styled(animated.a)`
+const HeroButton = styled(ScrollLink)`
   background-color: white;
   color: var(--primary-color);
   padding: 0.75rem 1.5rem;
@@ -28,6 +54,7 @@ const HeroButton = styled(animated.a)`
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--secondary-color);
@@ -67,18 +94,25 @@ const Hero = () => {
   });
 
   return (
-    <HeroSection>
-      <JsonLd data={heroSchema} />
-      <div className='container'>
+    <HeroWrapper>
+      <HeroSection>
+        <JsonLd data={heroSchema} />
         <HeroTitle style={titleProps}>Welcome to Honeypot Solutions</HeroTitle>
         <HeroSubtitle style={subtitleProps}>
           Innovative Software Development for Your Business
         </HeroSubtitle>
-        <HeroButton style={buttonProps} href='#contact'>
+        <HeroButton
+          style={buttonProps}
+          to='pricing'
+          smooth={true}
+          duration={500}
+          spy={true}
+          offset={-70}
+        >
           Get Started
         </HeroButton>
-      </div>
-    </HeroSection>
+      </HeroSection>
+    </HeroWrapper>
   );
 };
 

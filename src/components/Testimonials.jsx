@@ -9,6 +9,10 @@ const SectionTitle = styled.h2`
   text-align: center;
   margin-bottom: 2rem;
   color: var(--primary-color);
+
+  &:hover {
+    cursor: default;
+  }
 `;
 
 const TestimonialGrid = styled.div`
@@ -22,6 +26,10 @@ const TestimonialCard = styled.div`
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    cursor: default;
+  }
 `;
 
 const TestimonialText = styled.p`

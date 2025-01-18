@@ -28,10 +28,15 @@ const Logo = styled.h1`
   font-size: 1.5rem;
   margin-right: 1rem;
   padding: 0 1rem;
+
+  &:hover {
+    cursor: default;
+  }
 `;
 
 const NavLinks = styled.ul`
   display: flex;
+  align-items: center;
   list-style: none;
   background-color: var(--primary-color);
   border-radius: 50px;
@@ -45,6 +50,7 @@ const NavLinks = styled.ul`
     left: 0;
     right: 0;
     background-color: var(--primary-color);
+    border: 1px solid white;
     border-radius: 0 0 20px 20px;
     padding: 1rem;
     margin-top: 0.5rem;
@@ -65,6 +71,7 @@ const NavLink = styled(Link)`
   padding: 0.5rem 1rem;
   border-radius: 50px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 
   &:hover,
   &.active {
@@ -87,6 +94,7 @@ const MenuButton = styled.button`
 
   @media (max-width: 768px) {
     display: block;
+    margin-top: 5px;
   }
 `;
 
