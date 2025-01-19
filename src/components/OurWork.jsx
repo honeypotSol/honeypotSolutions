@@ -205,6 +205,14 @@ const works = [
     image: '/img/Mvcomposite.png',
     technologies: ['Next.js', 'Sanity.io', 'Tailwind CSS'],
   },
+  {
+    title: 'Portfolio Website',
+    description: 'Creative portfolio website',
+    longDescription:
+      'A clean and modern portfolio website for a Photographer and UI/UX Designer.',
+    image: '/img/Portfolio.png',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+  },
 ];
 
 const OurWork = () => {

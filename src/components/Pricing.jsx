@@ -149,7 +149,7 @@ const Pricing = () => {
                 <PricingCardFront>
                   <PlanIcon>{plan.icon}</PlanIcon>
                   <PlanName>{plan.name}</PlanName>
-                  <p>Hover to see pricing</p>
+                  <p>Flip to see pricing</p>
                 </PricingCardFront>
                 <PricingCardBack>
                   <OldPrice>{plan.oldPrice}</OldPrice>
