@@ -12,6 +12,7 @@ const OurWorkSection = styled.section`
 `;
 
 const SectionTitle = styled.h2`
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 2rem;
   color: var(--primary-color);
@@ -57,9 +58,17 @@ const WorkCard = styled.div`
   transition: transform 0.3s ease;
   position: relative;
   height: 450px;
+
+  @media (max-width: 768px) {
+    height: 400px;
+  }
+
+  @media (max-width: 480px) {
+    height: 380px;
+  }
+
   &:hover {
     transform: translateY(-5px);
-
     .overlay {
       opacity: 1;
     }
@@ -75,6 +84,14 @@ const WorkImage = styled.img.attrs({
   width: 100%;
   height: 300px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    height: 250px;
+  }
+
+  @media (max-width: 480px) {
+    height: 200px;
+  }
 `;
 
 const WorkContent = styled.div`
@@ -231,17 +248,27 @@ const OurWork = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          autoplaySpeed: 3000,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplaySpeed: 3000,
+          dots: false,
         },
       },
     ],

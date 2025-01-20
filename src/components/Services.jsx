@@ -11,6 +11,7 @@ const ServicesSection = styled.section`
 `;
 
 const SectionTitle = styled.h2`
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 2rem;
   color: var(--primary-color);
@@ -33,27 +34,59 @@ const ServiceGrid = styled.div`
   }
 `;
 
+const ServiceIcon = styled.i`
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+`;
+
 const ServiceCard = styled.div`
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 280px;
+  min-height: 450px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), #ff8c00);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
-    cursor: default;
-  }
-`;
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, #ffffff 0%, #fff5e6 100%);
+    border-color: rgba(255, 140, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
-const ServiceIcon = styled.i`
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+    &::before {
+      transform: scaleX(1);
+    }
+
+    ${ServiceIcon} {
+      transform: scale(1.1);
+      color: #ff8c00;
+    }
+  }
 `;
 
 const ServiceTitle = styled.h3`
@@ -76,17 +109,38 @@ const services = [
   {
     icon: '💻',
     title: 'Web Development',
-    description: 'Custom web applications tailored to your needs.',
+    description:
+      'Custom web applications built with cutting-edge technologies like React, Next.js, and Node.js. We create everything from responsive business websites to complex enterprise solutions, ensuring performance, security, and user experience.',
   },
   {
     icon: '📱',
     title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications.',
+    description:
+      'Native iOS/Android and cross-platform mobile applications using React Native. We deliver high-performance apps with native-like experience.',
   },
   {
-    icon: '📈',
-    title: 'Wordpress and Shopify Development',
-    description: 'Wordpress and Shopify websites for your business.',
+    icon: '🛍️',
+    title: 'E-commerce Solutions',
+    description:
+      'Comprehensive e-commerce solutions using Shopify, Wordpress, and custom platforms. We implement secure payment gateways, inventory management, multi-currency support, and analytics tracking. Our solutions help businesses scale their online presence.',
+  },
+  {
+    icon: '⚡',
+    title: 'API Development',
+    description:
+      'Robust and scalable REST and GraphQL APIs built with modern architecture principles. We create secure, and performant APIs that power your applications. Our solutions include authentication, rate limiting, caching strategies, and comprehensive API documentation.',
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud Solutions',
+    description:
+      'Expert AWS and Google Cloud implementations for optimal scalability. We handle cloud migration, serverless architecture, and automated CI/CD pipelines. Our cloud solutions ensure high availability, disaster recovery, and optimal resource utilization.',
+  },
+  {
+    icon: '🎨',
+    title: 'UI/UX Design',
+    description:
+      'Professional UI/UX design services focusing on user-centered design principles. We create intuitive interfaces, engaging user experiences, and responsive designs. ',
   },
 ];
 
@@ -131,7 +185,7 @@ const Services = () => {
       <JsonLd data={servicesSchema} />
       <SEO
         title='Our Services - Honeypot Solutions'
-        description='Explore our comprehensive software development services including web development, mobile apps, cloud solutions, and AI integration.'
+        description='Explore our comprehensive software development services including web development, mobile apps, cloud solutions, UI/UX design.'
         keywords='web development, mobile apps, cloud solutions, AI services'
       />
       <div className='container'>

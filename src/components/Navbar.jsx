@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { FaBars } from 'react-icons/fa';
 import JsonLd from '../components/JsonLd';
-
+import logo from '../../public/img/logo.png';
 const Nav = styled.nav`
   background-color: rgba(255, 255, 255, 0.9);
   position: fixed;
@@ -23,14 +23,14 @@ const NavContainer = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.h1`
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  margin-right: 1rem;
+const Logo = styled.img`
+  height: 41.6px;
+  width: auto;
   padding: 0 1rem;
+  cursor: pointer;
 
-  &:hover {
-    cursor: default;
+  @media (max-width: 768px) {
+    height: 32px;
   }
 `;
 
@@ -162,7 +162,7 @@ const Navbar = () => {
     >
       <JsonLd data={breadcrumbSchema} />
       <NavContainer>
-        <Logo>Honeypot</Logo>
+        <Logo src={logo} alt='Honeypot Solutions' />
         <MenuButton onClick={toggleMenu}>
           <FaBars />
         </MenuButton>

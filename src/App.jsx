@@ -12,6 +12,7 @@ import ScrollAnimation from './components/ScrollAnimation';
 import OurWork from './components/OurWork';
 import SEO from './components/SEO';
 import JsonLd from './components/JsonLd';
+import FAQ from './components/FAQ';
 
 const AppContainer = styled.div`
   display: flex;
@@ -76,13 +77,18 @@ function App() {
         </Element>
       </ScrollAnimation>
       <ScrollAnimation>
-        <Element name='testimonials' id='testimonials-section'>
+        {/* <Element name='testimonials' id='testimonials-section'>
           <Testimonials />
-        </Element>
+        </Element> */}
       </ScrollAnimation>
       <ScrollAnimation>
         <Element name='pricing' id='pricing-section'>
           <Pricing />
+        </Element>
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Element name='faq' id='faq-section'>
+          <FAQ />
         </Element>
       </ScrollAnimation>
       <ScrollAnimation>
