@@ -85,12 +85,58 @@ const ServiceIcon = styled.i`
   margin-bottom: 1.5rem;
   display: inline-block;
   position: relative;
-  transition: transform 0.3s ease;
+  z-index: 2;
 
   @media (max-width: 768px) {
     font-size: 3rem;
     margin-bottom: 1rem;
   }
+`;
+
+const ServiceTitle = styled.h3`
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+`;
+
+const ServiceDescription = styled.p`
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+`;
+
+const ServiceOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--primary-color-rgb), 0.95),
+    rgba(var(--secondary-color-rgb), 0.95)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  border-radius: 16px;
+  padding: 2rem;
+  color: white;
+  z-index: 1;
 `;
 
 const ServiceCard = styled.div`
@@ -108,67 +154,15 @@ const ServiceCard = styled.div`
   position: relative;
   overflow: visible;
   isolation: isolate;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-
-    ${ServiceIcon} {
-      transform: translateY(-5px);
-    }
-
-    &::after {
-      opacity: 1;
-    }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    border: 2px solid var(--primary-color);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
 
   @media (max-width: 768px) {
     min-height: 300px;
     padding: 1.5rem;
     background: #ffffff;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
 
   @media (max-width: 480px) {
     min-height: 250px;
-  }
-`;
-
-const ServiceTitle = styled.h3`
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: var(--primary-color);
-  position: relative;
-  transition: color 0.3s ease;
-
-  @media (max-width: 768px) {
-    font-size: 1.3rem;
-  }
-`;
-
-const ServiceDescription = styled.p`
-  color: #666;
-  line-height: 1.6;
-  flex-grow: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  position: relative;
-
-  @media (max-width: 768px) {
-    font-size: 0.95rem;
   }
 `;
 
@@ -239,7 +233,7 @@ const Services = () => {
         <SectionTitle>Our Services</SectionTitle>
         <ServiceGrid>
           {services.map((service, index) => (
-            <ServiceCard>
+            <ServiceCard key={index}>
               <div>
                 <ServiceIcon>{service.icon}</ServiceIcon>
                 <ServiceTitle>{service.title}</ServiceTitle>
