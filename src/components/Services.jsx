@@ -234,12 +234,6 @@ const servicesSchema = {
 const Services = () => {
   return (
     <ServicesSection>
-      <JsonLd data={servicesSchema} />
-      <SEO
-        title='Our Services - Honeypot Solutions'
-        description='Explore our comprehensive software development services including web development, mobile apps, cloud solutions, UI/UX design.'
-        keywords='web development, mobile apps, cloud solutions, AI services'
-      />
       <div className='container'>
         <SectionTitle>Our Services</SectionTitle>
         <ServiceGrid>
