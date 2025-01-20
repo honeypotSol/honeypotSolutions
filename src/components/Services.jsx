@@ -107,7 +107,6 @@ const ServiceCard = styled.div`
   border: 1px solid #eee;
   position: relative;
   z-index: 1;
-  isolation: isolate;
 
   &:hover {
     cursor: default;
@@ -140,11 +139,30 @@ const ServiceIcon = styled.i`
 `;
 
 const ServiceTitle = styled.h3`
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 2;
 
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const ServiceDescription = styled.p`
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const services = [
