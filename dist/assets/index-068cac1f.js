@@ -207,7 +207,33 @@ Error generating stack: `+o.message+`
     gap: 1.5rem;
     padding: 0 1rem;
   }
-`,kO=z.div``,bO=z.i`
+`,kO=z.div`
+  background-color: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 100%;
+  border: 1px solid #eee;
+  z-index: 2;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+
+  @media screen and (max-width: 768px) {
+    min-height: 300px;
+    padding: 1.5rem;
+    background-color: #ffffff !important;
+    z-index: 2;
+    transform: none;
+    -webkit-transform: none;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 480px) {
+    min-height: 250px;
+  }
+`,bO=z.i`
   font-size: 3.5rem;
   color: var(--primary-color) !important;
   margin-bottom: 1.5rem;
