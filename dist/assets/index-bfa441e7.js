@@ -244,9 +244,29 @@ Error generating stack: `+o.message+`
     }
   }
 `,_O=$.h2`
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
 
+  &:hover {
+    cursor: default;
+  }
 `,EO=$.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
 `,kO=$.div`
 
 `,bO=$.i`
