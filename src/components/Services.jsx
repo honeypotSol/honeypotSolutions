@@ -3,74 +3,7 @@ import styled from 'styled-components';
 import SEO from './SEO';
 import JsonLd from '../components/JsonLd';
 
-const ServicesSection = styled.section`
-  --bc: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  --bs: 2px;
-  --cs: 35px;
-
-  position: relative;
-  padding: 4rem 0;
-  margin: 2rem;
-  background: #fdfdff;
-  z-index: 1;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  @media screen and (max-width: 768px) {
-    margin: 1rem;
-    padding: 2rem 0;
-    background: #fdfdff !important;
-    border: 2px solid var(--primary-color);
-    border-radius: 16px;
-    transform: none;
-    -webkit-transform: none;
-    z-index: auto;
-
-    &::before,
-    &::after {
-      display: none;
-    }
-  }
-
-  @media (min-width: 769px) {
-    &::before {
-      content: '';
-      position: absolute;
-      inset: calc(-1 * var(--bs));
-      background: var(--bc);
-      z-index: -1;
-      clip-path: polygon(
-        var(--cs) 0,
-        100% 0,
-        100% calc(100% - var(--cs)),
-        calc(50% + var(--cs)) calc(100% - var(--cs)),
-        50% 100%,
-        0% 100%,
-        0 var(--cs)
-      );
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #fdfdff;
-      z-index: -1;
-      clip-path: polygon(
-        calc(var(--cs) + var(--bs) * 0.5) var(--bs),
-        calc(100% - var(--bs)) var(--bs),
-        calc(100% - var(--bs)) calc(100% - var(--cs) - var(--bs)),
-        calc(50% + var(--cs) - var(--bs) * 0.5)
-          calc(100% - var(--cs) - var(--bs)),
-        calc(50% - var(--bs) * 0.5) calc(100% - var(--bs)),
-        var(--bs) calc(100% - var(--bs)),
-        var(--bs) calc(var(--cs) + var(--bs) * 0.5)
-      );
-    }
-  }
-`;
+const ServicesSection = styled.section``;
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
@@ -234,6 +167,12 @@ const servicesSchema = {
 const Services = () => {
   return (
     <ServicesSection>
+      <JsonLd data={servicesSchema} />
+      <SEO
+        title='Our Services - Honeypot Solutions'
+        description='Explore our comprehensive software development services including web development, mobile apps, cloud solutions, UI/UX design.'
+        keywords='web development, mobile apps, cloud solutions, AI services'
+      />
       <div className='container'>
         <SectionTitle>Our Services</SectionTitle>
         <ServiceGrid>
