@@ -50,10 +50,10 @@ const ServiceIcon = styled.i`
 `;
 
 const ServiceCard = styled.div`
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  background: #ffffff;
   padding: 2rem 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   height: 100%;
   display: flex;
@@ -61,18 +61,20 @@ const ServiceCard = styled.div`
   justify-content: space-between;
   min-height: 400px;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid #eee;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
 
   @media (max-width: 768px) {
     min-height: 350px;
     padding: 1.5rem;
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   @media (max-width: 480px) {
-    min-height: 390px;
+    min-height: 300px;
   }
 
   &::before {
@@ -82,17 +84,16 @@ const ServiceCard = styled.div`
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), #ff8c00);
+    background: var(--primary-color);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
   }
 
   &:hover {
-    transform: translateY(-10px);
-    background: linear-gradient(135deg, #ffffff 0%, #fff5e6 100%);
-    border-color: rgba(255, 140, 0, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
     &::before {
       transform: scaleX(1);
@@ -100,7 +101,7 @@ const ServiceCard = styled.div`
 
     ${ServiceIcon} {
       transform: scale(1.1);
-      color: #ff8c00;
+      color: var(--primary-color);
     }
   }
 `;
