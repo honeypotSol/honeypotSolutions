@@ -205,10 +205,8 @@ const Services = () => {
         <ServiceGrid>
           {services.map((service, index) => (
             <ServiceCard key={index}>
-              <div>
-                <ServiceIcon>{service.icon}</ServiceIcon>
-                <ServiceTitle>{service.title}</ServiceTitle>
-              </div>
+              <ServiceIcon>{service.icon}</ServiceIcon>
+              <ServiceTitle>{service.title}</ServiceTitle>
               <ServiceDescription>{service.description}</ServiceDescription>
             </ServiceCard>
           ))}
