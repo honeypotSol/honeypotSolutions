@@ -93,33 +93,7 @@ const ServiceGrid = styled.div`
 `;
 
 const ServiceCard = styled.div`
-  background: #ffffff;
-  padding: 2rem 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 400px;
-  border: 1px solid #eee;
-  z-index: 1;
-
-  &:hover {
-    cursor: default;
-  }
-
-  @media (max-width: 768px) {
-    min-height: 300px;
-    padding: 1.5rem;
-    background: #ffffff;
-    z-index: 1;
-  }
-
-  @media (max-width: 480px) {
-    min-height: 250px;
-  }
+  
 `;
 
 const ServiceIcon = styled.i`
