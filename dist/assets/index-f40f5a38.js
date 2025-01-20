@@ -268,7 +268,6 @@ Error generating stack: `+o.message+`
   }
 `,kO=z.div`
   padding: 2rem 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 
   &:hover {
