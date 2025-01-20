@@ -11,15 +11,22 @@ const ServicesSection = styled.section`
   position: relative;
   padding: 4rem 0;
   margin: 2rem;
-  background: #f3f3f3;
+  background: #fdfdff;
   z-index: 1;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     margin: 1rem;
     padding: 2rem 0;
-    background: #fdfdff;
+    background: #fdfdff !important;
     border: 2px solid var(--primary-color);
     border-radius: 16px;
+    transform: none;
+    -webkit-transform: none;
+    z-index: auto;
 
     &::before,
     &::after {
@@ -83,6 +90,7 @@ const ServiceGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
@@ -93,44 +101,79 @@ const ServiceGrid = styled.div`
 `;
 
 const ServiceCard = styled.div`
-  &:hover {
-    cursor: default;
+  background-color: #ffffff !important;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  border: 1px solid #eee;
+  position: relative;
+  z-index: 2;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+
+  @media screen and (max-width: 768px) {
+    min-height: 300px;
+    padding: 1.5rem;
+    background-color: #ffffff !important;
+    z-index: 2;
+    transform: none;
+    -webkit-transform: none;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 480px) {
+    min-height: 250px;
   }
 `;
 
 const ServiceIcon = styled.i`
   font-size: 3.5rem;
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   margin-bottom: 1.5rem;
   display: inline-block;
-  z-index: 2;
+  position: relative;
+  z-index: 3;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: var(--primary-color) !important;
   }
 `;
 
 const ServiceTitle = styled.h3`
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: var(--primary-color);
-  z-index: 2;
+  color: var(--primary-color) !important;
+  position: relative;
+  z-index: 3;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 1.3rem;
+    color: var(--primary-color) !important;
   }
 `;
 
 const ServiceDescription = styled.p`
-  color: #666;
+  color: #666 !important;
   line-height: 1.6;
   flex-grow: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  z-index: 2;
+  position: relative;
+  z-index: 3;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 0.95rem;
+    color: #666 !important;
   }
 `;
 
@@ -202,8 +245,10 @@ const Services = () => {
         <ServiceGrid>
           {services.map((service, index) => (
             <ServiceCard key={index}>
-              <ServiceIcon>{service.icon}</ServiceIcon>
-              <ServiceTitle>{service.title}</ServiceTitle>
+              <div>
+                <ServiceIcon>{service.icon}</ServiceIcon>
+                <ServiceTitle>{service.title}</ServiceTitle>
+              </div>
               <ServiceDescription>{service.description}</ServiceDescription>
             </ServiceCard>
           ))}
