@@ -190,14 +190,16 @@ Error generating stack: `+o.message+`
   }
 `,xO=$.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
   }
 `,Yy=$.i`
   font-size: 3.5rem;
@@ -205,9 +207,14 @@ Error generating stack: `+o.message+`
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
 `,RO=$.div`
   background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -215,12 +222,21 @@ Error generating stack: `+o.message+`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 450px;
+  min-height: 400px;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.5);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    min-height: 350px;
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 300px;
+  }
 
   &::before {
     content: '';
@@ -254,14 +270,23 @@ Error generating stack: `+o.message+`
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--primary-color);
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `,IO=$.p`
   color: #666;
   line-height: 1.6;
   flex-grow: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    -webkit-line-clamp: 5;
+  }
 `,qy=[{icon:"💻",title:"Web Development",description:"Custom web applications built with cutting-edge technologies like React, Next.js, and Node.js. We create everything from responsive business websites to complex enterprise solutions, ensuring performance, security, and user experience."},{icon:"📱",title:"Mobile App Development",description:"Native iOS/Android and cross-platform mobile applications using React Native. We deliver high-performance apps with native-like experience."},{icon:"🛍️",title:"E-commerce Solutions",description:"Comprehensive e-commerce solutions using Shopify, Wordpress, and custom platforms. We implement secure payment gateways, inventory management, multi-currency support, and analytics tracking. Our solutions help businesses scale their online presence."},{icon:"⚡",title:"API Development",description:"Robust and scalable REST and GraphQL APIs built with modern architecture principles. We create secure, and performant APIs that power your applications. Our solutions include authentication, rate limiting, caching strategies, and comprehensive API documentation."},{icon:"☁️",title:"Cloud Solutions",description:"Expert AWS and Google Cloud implementations for optimal scalability. We handle cloud migration, serverless architecture, and automated CI/CD pipelines. Our cloud solutions ensure high availability, disaster recovery, and optimal resource utilization."},{icon:"🎨",title:"UI/UX Design",description:"Professional UI/UX design services focusing on user-centered design principles. We create intuitive interfaces, engaging user experiences, and responsive designs. "}],MO=({children:e,index:t})=>{const[n,r]=Ed({threshold:.2,triggerOnce:!0}),i=Yn({opacity:r?1:0,transform:r?"translateY(0px)":"translateY(50px)",delay:t*200,config:{mass:1,tension:120,friction:14}});return _.createElement(ei.div,{ref:n,style:i},e)},LO={"@context":"https://schema.org","@type":"ItemList",itemListElement:qy.map((e,t)=>({"@type":"Service",position:t+1,name:e.title,description:e.description,provider:{"@type":"Organization",name:"Honeypot Solutions"}}))},$O=()=>_.createElement(PO,null,_.createElement(as,{data:LO}),_.createElement(Qy,{title:"Our Services - Honeypot Solutions",description:"Explore our comprehensive software development services including web development, mobile apps, cloud solutions, UI/UX design.",keywords:"web development, mobile apps, cloud solutions, AI services"}),_.createElement("div",{className:"container"},_.createElement(TO,null,"Our Services"),_.createElement(xO,null,qy.map((e,t)=>_.createElement(MO,{key:t,index:t},_.createElement(RO,null,_.createElement("div",null,_.createElement(Yy,null,e.icon),_.createElement(AO,null,e.title)),_.createElement(IO,null,e.description)))))));$.section`
   padding: 4rem 0;
 `;$.h2`
