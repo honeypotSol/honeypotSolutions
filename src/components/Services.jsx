@@ -6,18 +6,19 @@ import JsonLd from '../components/JsonLd';
 const ServicesSection = styled.section`
   --bc: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   --bs: 2px;
-  --cs: 40px;
+  --cs: 35px;
 
   position: relative;
   padding: 4rem 0;
   margin: 2rem;
+  z-index: 1;
 
   &::before {
     content: '';
     position: absolute;
     inset: calc(-1 * var(--bs));
     background: var(--bc);
-    z-index: 0;
+    z-index: -1;
     clip-path: polygon(
       var(--cs) 0,
       100% 0,
@@ -34,6 +35,7 @@ const ServicesSection = styled.section`
     position: absolute;
     inset: 0;
     background: #fdfdff;
+    z-index: -1;
     clip-path: polygon(
       calc(var(--cs) + var(--bs) * 0.5) var(--bs),
       calc(100% - var(--bs)) var(--bs),
@@ -43,11 +45,6 @@ const ServicesSection = styled.section`
       var(--bs) calc(100% - var(--bs)),
       var(--bs) calc(var(--cs) + var(--bs) * 0.5)
     );
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
   }
 `;
 
@@ -76,6 +73,38 @@ const ServiceGrid = styled.div`
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 0 1rem;
+  }
+`;
+
+const ServiceCard = styled.div`
+  background: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  border: 1px solid #eee;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+
+  &:hover {
+    cursor: default;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 300px;
+    padding: 1.5rem;
+    background: #ffffff;
+    z-index: 1;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 250px;
   }
 `;
 
@@ -117,52 +146,6 @@ const ServiceDescription = styled.p`
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
-  }
-`;
-
-const ServiceOverlay = styled.div`
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(var(--primary-color-rgb), 0.95),
-    rgba(var(--secondary-color-rgb), 0.95)
-  );
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  border-radius: 16px;
-  padding: 2rem;
-  color: white;
-  z-index: 1;
-`;
-
-const ServiceCard = styled.div`
-  background: #ffffff;
-  padding: 2rem 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 400px;
-  border: 1px solid #eee;
-  position: relative;
-  overflow: visible;
-  isolation: isolate;
-
-  @media (max-width: 768px) {
-    min-height: 300px;
-    padding: 1.5rem;
-    background: #ffffff;
-  }
-
-  @media (max-width: 480px) {
-    min-height: 250px;
   }
 `;
 
@@ -233,7 +216,7 @@ const Services = () => {
         <SectionTitle>Our Services</SectionTitle>
         <ServiceGrid>
           {services.map((service, index) => (
-            <ServiceCard key={index}>
+            <ServiceCard>
               <div>
                 <ServiceIcon>{service.icon}</ServiceIcon>
                 <ServiceTitle>{service.title}</ServiceTitle>
