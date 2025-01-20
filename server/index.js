@@ -1,17 +1,18 @@
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
+
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config();
-
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // CORS configuration
 const corsOptions = {
@@ -20,6 +21,7 @@ const corsOptions = {
     'https://honeypot-solutions.com',
     'http://localhost:3000',
     'http://localhost:5173',
+    'http://localhost:3001',
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -97,7 +99,7 @@ app.use((err, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV}`);
   console.log(`Email configured for: ${process.env.EMAIL_USER}`);
 });

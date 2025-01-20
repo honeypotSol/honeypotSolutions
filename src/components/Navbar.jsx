@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import { FaBars } from 'react-icons/fa';
@@ -24,7 +24,7 @@ const NavContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 41.6px;
+  height: 24px;
   width: auto;
   padding: 0 1rem;
   cursor: pointer;
@@ -37,10 +37,12 @@ const Logo = styled.img`
 const NavLinks = styled.ul`
   display: flex;
   align-items: center;
+  justify-content: center;
   list-style: none;
   background-color: var(--primary-color);
   border-radius: 50px;
   padding: 0.5rem;
+  margin: 0;
 
   @media (max-width: 768px) {
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
@@ -59,19 +61,27 @@ const NavLinks = styled.ul`
 
 const NavItem = styled.li`
   margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
 
   @media (max-width: 768px) {
     margin: 0.5rem 0;
+    width: 100%;
+    justify-content: center;
   }
 `;
 
 const NavLink = styled(Link)`
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 1px 1.2rem;
   border-radius: 50px;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  display: block;
+  text-align: center;
+  width: 100%;
+  offset: -100px;
 
   &:hover,
   &.active {
@@ -79,8 +89,7 @@ const NavLink = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    display: block;
-    padding: 0.5rem;
+    padding: 1rem 1rem;
   }
 `;
 
@@ -132,6 +141,7 @@ const breadcrumbSchema = {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -141,10 +151,20 @@ const Navbar = () => {
       }
     };
 
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
     document.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
 
     return () => {
       document.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [scrolled]);
 
@@ -154,6 +174,7 @@ const Navbar = () => {
 
   return (
     <Nav
+      ref={navRef}
       style={{
         boxShadow: scrolled
           ? '0 4px 10px rgba(0, 0, 0, 0.1)'
@@ -191,17 +212,6 @@ const Navbar = () => {
           </NavItem>
           <NavItem>
             <NavLink
-              to='testimonials'
-              smooth={true}
-              duration={500}
-              spy={true}
-              activeClass='active'
-            >
-              Testimonials
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
               to='pricing'
               smooth={true}
               duration={500}
@@ -220,6 +230,17 @@ const Navbar = () => {
               activeClass='active'
             >
               Contact
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              to='faq'
+              smooth={true}
+              duration={500}
+              spy={true}
+              activeClass='active'
+            >
+              FAQ
             </NavLink>
           </NavItem>
         </NavLinks>

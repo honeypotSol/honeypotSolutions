@@ -32,10 +32,6 @@ const HeroSection = styled.section`
   }
 `;
 
-const HeroWrapper = styled.div`
-  background-color: #f8f8f8;
-`;
-
 const HeroTitle = styled(animated.h1)`
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -95,7 +91,7 @@ const Hero = () => {
   });
 
   return (
-    <HeroWrapper>
+    <div>
       <HeroSection>
         <JsonLd data={heroSchema} />
         <HeroTitle style={titleProps}>Welcome to Honeypot Solutions</HeroTitle>
@@ -113,7 +109,7 @@ const Hero = () => {
           Get Started
         </HeroButton>
       </HeroSection>
-    </HeroWrapper>
+    </div>
   );
 };
 

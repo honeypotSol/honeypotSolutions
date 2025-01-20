@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PricingSection = styled.section`
-  background-color: #f8f8f8;
   padding: 4rem 0;
 `;
 

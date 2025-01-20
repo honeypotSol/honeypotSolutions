@@ -6,8 +6,51 @@ import SEO from './SEO';
 import JsonLd from '../components/JsonLd';
 
 const ServicesSection = styled.section`
-  background-color: #f8f8f8;
+  --bc: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --bs: 2px;
+  --cs: 40px;
+
+  position: relative;
   padding: 4rem 0;
+  margin: 2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: calc(-1 * var(--bs));
+    background: var(--bc);
+    z-index: 0;
+    clip-path: polygon(
+      var(--cs) 0,
+      100% 0,
+      100% calc(100% - var(--cs)),
+      calc(50% + var(--cs)) calc(100% - var(--cs)),
+      50% 100%,
+      0% 100%,
+      0 var(--cs)
+    );
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fdfdff;
+    clip-path: polygon(
+      calc(var(--cs) + var(--bs) * 0.5) var(--bs),
+      calc(100% - var(--bs)) var(--bs),
+      calc(100% - var(--bs)) calc(100% - var(--cs) - var(--bs)),
+      calc(50% + var(--cs) - var(--bs) * 0.5) calc(100% - var(--cs) - var(--bs)),
+      calc(50% - var(--bs) * 0.5) calc(100% - var(--bs)),
+      var(--bs) calc(100% - var(--bs)),
+      var(--bs) calc(var(--cs) + var(--bs) * 0.5)
+    );
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -66,7 +109,7 @@ const ServiceCard = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    min-height: 350px;
+    min-height: 300px;
     padding: 1.5rem;
     background: #ffffff;
     backdrop-filter: none;
@@ -121,13 +164,11 @@ const ServiceDescription = styled.p`
   line-height: 1.6;
   flex-grow: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
-    -webkit-line-clamp: 5;
   }
 `;
 

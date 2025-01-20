@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const FAQSection = styled.section`
   padding: 4rem 0;
-  background-color: #fff;
+  background-color: #fdfdff;
 `;
 
 const Container = styled.div`

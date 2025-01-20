@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 
 const OurWorkSection = styled.section`
   padding: 4rem 0;
-  background-color: #f8f8f8;
+  background-color: #f3f3f3;
 `;
 
 const SectionTitle = styled.h2`

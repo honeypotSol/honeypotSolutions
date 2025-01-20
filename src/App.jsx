@@ -87,13 +87,13 @@ function App() {
         </Element>
       </ScrollAnimation>
       <ScrollAnimation>
-        <Element name='faq' id='faq-section'>
-          <FAQ />
+        <Element name='contact' id='contact-section'>
+          <Contact />
         </Element>
       </ScrollAnimation>
       <ScrollAnimation>
-        <Element name='contact' id='contact-section'>
-          <Contact />
+        <Element name='faq' id='faq-section'>
+          <FAQ />
         </Element>
       </ScrollAnimation>
       <Footer />

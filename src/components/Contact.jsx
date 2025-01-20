@@ -5,7 +5,7 @@ import { InlineWidget } from 'react-calendly';
 
 const ContactSection = styled.section`
   padding: 4rem 0;
-  background-color: #f8f8f8;
+  background-color: #fdfdff;
 `;
 
 const ContactContainer = styled.div`
@@ -157,12 +157,8 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const API_URL = import.meta.env.PROD
-      ? 'https://your-railway-url.railway.app/api/contact'
-      : 'http://localhost:3001/api/contact';
-
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch('http://localhost:3001/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
