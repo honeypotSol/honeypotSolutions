@@ -125,7 +125,17 @@ const ServiceCard = styled.div`
 `;
 
 const ServiceIcon = styled.i`
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
 
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const ServiceTitle = styled.h3`
@@ -144,8 +154,6 @@ const ServiceDescription = styled.p`
   color: #666;
   line-height: 1.6;
   flex-grow: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
   overflow: hidden;
   position: relative;
   z-index: 2;
