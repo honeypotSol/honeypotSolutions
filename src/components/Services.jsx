@@ -11,21 +11,15 @@ const ServicesSection = styled.section`
   position: relative;
   padding: 4rem 0;
   margin: 2rem;
-  background: #fdfdff;
+  background: #f3f3f3;
   z-index: 1;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     margin: 1rem;
     padding: 2rem 0;
     background: #fdfdff;
     border: 2px solid var(--primary-color);
     border-radius: 16px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
 
     &::before,
     &::after {
@@ -33,16 +27,7 @@ const ServicesSection = styled.section`
     }
   }
 
-  @supports (-webkit-appearance: none) and (not (overflow: -webkit-marquee)) and
-    (not (-ms-ime-align: auto)) and (not (-moz-appearance: none)) {
-    @media screen and (max-width: 768px) {
-      transform: none;
-      -webkit-transform: none;
-      background: #fdfdff !important;
-    }
-  }
-
-  @media screen and (min-width: 769px) {
+  @media (min-width: 769px) {
     &::before {
       content: '';
       position: absolute;
@@ -100,10 +85,8 @@ const ServiceGrid = styled.div`
   padding: 0 1rem;
   position: relative;
   z-index: 2;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 0 1rem;
@@ -124,24 +107,20 @@ const ServiceCard = styled.div`
   border: 1px solid #eee;
   position: relative;
   z-index: 1;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-
-  @media screen and (max-width: 768px) {
-    min-height: 300px;
-    padding: 1.5rem;
-    background: #ffffff !important;
-    z-index: 1;
-  }
-
-  @media screen and (max-width: 480px) {
-    min-height: 250px;
-  }
 
   &:hover {
     cursor: default;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 300px;
+    padding: 1.5rem;
+    background: #ffffff;
+    z-index: 1;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 250px;
   }
 `;
 
