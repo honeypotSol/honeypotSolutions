@@ -104,16 +104,6 @@ const ServiceCard = styled.div`
   &:hover {
     cursor: default;
   }
-
-  @media (max-width: 768px) {
-    min-height: 300px;
-    padding: 1.5rem;
-    background: #ffffff;
-  }
-
-  @media (max-width: 480px) {
-    min-height: 250px;
-  }
 `;
 
 const ServiceIcon = styled.i`
