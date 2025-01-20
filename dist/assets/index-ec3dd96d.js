@@ -183,53 +183,7 @@ Error generating stack: `+o.message+`
     background-color: var(--secondary-color);
     color: white;
   }
-`,wO=()=>{const e={"@context":"https://schema.org","@type":"WebSite",name:"Honeypot Solutions",description:"Innovative Software Development for Your Business",url:"https://honeypot-solutions.com",potentialAction:{"@type":"ContactAction",target:"https://honeypot-solutions.com/#contact"}},t=xr({from:{opacity:0,transform:"translateY(-50px)"},to:{opacity:1,transform:"translateY(0)"},delay:300}),n=xr({from:{opacity:0,transform:"translateY(-30px)"},to:{opacity:1,transform:"translateY(0)"},delay:600}),r=xr({from:{opacity:0,transform:"translateY(30px)"},to:{opacity:1,transform:"translateY(0)"},delay:900});return _.createElement("div",null,_.createElement(mO,null,_.createElement(as,{data:e}),_.createElement(vO,{style:t},"Welcome to Honeypot Solutions"),_.createElement(gO,{style:n},"Innovative Software Development for Your Business"),_.createElement(yO,{style:r,to:"pricing",smooth:!0,duration:500,spy:!0,offset:-70},"Get Started")))},Vy=({title:e="Honeypot Solutions - Innovative Software Development",description:t="Custom software development solutions including web development, mobile apps, cloud solutions, and AI integration for businesses.",keywords:n="software development, web development, mobile apps, cloud solutions, AI, machine learning",image:r="/images/og-image.jpg",url:i="https://honeypot-solutions.com"})=>_.createElement(xg,null,_.createElement("title",null,e),_.createElement("meta",{name:"description",content:t}),_.createElement("meta",{name:"keywords",content:n}),_.createElement("meta",{property:"og:type",content:"website"}),_.createElement("meta",{property:"og:url",content:i}),_.createElement("meta",{property:"og:title",content:e}),_.createElement("meta",{property:"og:description",content:t}),_.createElement("meta",{property:"og:image",content:r}),_.createElement("meta",{name:"twitter:card",content:"summary_large_image"}),_.createElement("meta",{name:"twitter:url",content:i}),_.createElement("meta",{name:"twitter:title",content:e}),_.createElement("meta",{name:"twitter:description",content:t}),_.createElement("meta",{name:"twitter:image",content:r}),_.createElement("meta",{name:"robots",content:"index, follow"}),_.createElement("meta",{name:"language",content:"English"}),_.createElement("link",{rel:"canonical",href:i})),SO=z.section`
-  @media (min-width: 768px) {
-    --bc: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --bs: 2px;
-    --cs: 40px;
-
-    position: relative;
-    padding: 4rem 0;
-    margin: 2rem;
-    z-index: 1;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: calc(-1 * var(--bs));
-      background: var(--bc);
-      z-index: -1;
-      clip-path: polygon(
-        var(--cs) 0,
-        100% 0,
-        100% calc(100% - var(--cs)),
-        calc(50% + var(--cs)) calc(100% - var(--cs)),
-        50% 100%,
-        0% 100%,
-        0 var(--cs)
-      );
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #fdfdff;
-      z-index: -1;
-      clip-path: polygon(
-        calc(var(--cs) + var(--bs) * 0.5) var(--bs),
-        calc(100% - var(--bs)) var(--bs),
-        calc(100% - var(--bs)) calc(100% - var(--cs) - var(--bs)),
-        calc(50% + var(--cs) - var(--bs) * 0.5)
-          calc(100% - var(--cs) - var(--bs)),
-        calc(50% - var(--bs) * 0.5) calc(100% - var(--bs)),
-        var(--bs) calc(100% - var(--bs)),
-        var(--bs) calc(var(--cs) + var(--bs) * 0.5)
-      );
-    }
-  }
-`,_O=z.h2`
+`,wO=()=>{const e={"@context":"https://schema.org","@type":"WebSite",name:"Honeypot Solutions",description:"Innovative Software Development for Your Business",url:"https://honeypot-solutions.com",potentialAction:{"@type":"ContactAction",target:"https://honeypot-solutions.com/#contact"}},t=xr({from:{opacity:0,transform:"translateY(-50px)"},to:{opacity:1,transform:"translateY(0)"},delay:300}),n=xr({from:{opacity:0,transform:"translateY(-30px)"},to:{opacity:1,transform:"translateY(0)"},delay:600}),r=xr({from:{opacity:0,transform:"translateY(30px)"},to:{opacity:1,transform:"translateY(0)"},delay:900});return _.createElement("div",null,_.createElement(mO,null,_.createElement(as,{data:e}),_.createElement(vO,{style:t},"Welcome to Honeypot Solutions"),_.createElement(gO,{style:n},"Innovative Software Development for Your Business"),_.createElement(yO,{style:r,to:"pricing",smooth:!0,duration:500,spy:!0,offset:-70},"Get Started")))},Vy=({title:e="Honeypot Solutions - Innovative Software Development",description:t="Custom software development solutions including web development, mobile apps, cloud solutions, and AI integration for businesses.",keywords:n="software development, web development, mobile apps, cloud solutions, AI, machine learning",image:r="/images/og-image.jpg",url:i="https://honeypot-solutions.com"})=>_.createElement(xg,null,_.createElement("title",null,e),_.createElement("meta",{name:"description",content:t}),_.createElement("meta",{name:"keywords",content:n}),_.createElement("meta",{property:"og:type",content:"website"}),_.createElement("meta",{property:"og:url",content:i}),_.createElement("meta",{property:"og:title",content:e}),_.createElement("meta",{property:"og:description",content:t}),_.createElement("meta",{property:"og:image",content:r}),_.createElement("meta",{name:"twitter:card",content:"summary_large_image"}),_.createElement("meta",{name:"twitter:url",content:i}),_.createElement("meta",{name:"twitter:title",content:e}),_.createElement("meta",{name:"twitter:description",content:t}),_.createElement("meta",{name:"twitter:image",content:r}),_.createElement("meta",{name:"robots",content:"index, follow"}),_.createElement("meta",{name:"language",content:"English"}),_.createElement("link",{rel:"canonical",href:i})),SO=z.section``,_O=z.h2`
   font-size: 2rem;
   text-align: center;
   margin-bottom: 2rem;

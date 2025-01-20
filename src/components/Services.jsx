@@ -3,53 +3,7 @@ import styled from 'styled-components';
 import SEO from './SEO';
 import JsonLd from '../components/JsonLd';
 
-const ServicesSection = styled.section`
-  @media (min-width: 768px) {
-    --bc: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --bs: 2px;
-    --cs: 40px;
-
-    position: relative;
-    padding: 4rem 0;
-    margin: 2rem;
-    z-index: 1;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: calc(-1 * var(--bs));
-      background: var(--bc);
-      z-index: -1;
-      clip-path: polygon(
-        var(--cs) 0,
-        100% 0,
-        100% calc(100% - var(--cs)),
-        calc(50% + var(--cs)) calc(100% - var(--cs)),
-        50% 100%,
-        0% 100%,
-        0 var(--cs)
-      );
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #fdfdff;
-      z-index: -1;
-      clip-path: polygon(
-        calc(var(--cs) + var(--bs) * 0.5) var(--bs),
-        calc(100% - var(--bs)) var(--bs),
-        calc(100% - var(--bs)) calc(100% - var(--cs) - var(--bs)),
-        calc(50% + var(--cs) - var(--bs) * 0.5)
-          calc(100% - var(--cs) - var(--bs)),
-        calc(50% - var(--bs) * 0.5) calc(100% - var(--bs)),
-        var(--bs) calc(100% - var(--bs)),
-        var(--bs) calc(var(--cs) + var(--bs) * 0.5)
-      );
-    }
-  }
-`;
+const ServicesSection = styled.section``;
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
