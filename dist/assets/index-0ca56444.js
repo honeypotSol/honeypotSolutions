@@ -245,6 +245,8 @@ Error generating stack: `+o.message+`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  position: relative;
+  z-index: 2;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -257,6 +259,8 @@ Error generating stack: `+o.message+`
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   display: inline-block;
+  position: relative;
+  z-index: 2;
 
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -277,6 +281,7 @@ Error generating stack: `+o.message+`
   border: 1px solid #eee;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 
   @media (max-width: 768px) {
     min-height: 300px;
@@ -284,10 +289,11 @@ Error generating stack: `+o.message+`
     background: #ffffff;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    z-index: 2;
   }
 
   @media (max-width: 480px) {
-    min-height: 300px;
+    min-height: 250px;
   }
 
   &::before {
@@ -301,6 +307,7 @@ Error generating stack: `+o.message+`
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
+    z-index: 3;
   }
 
   &:hover {
@@ -321,6 +328,8 @@ Error generating stack: `+o.message+`
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--primary-color);
+  position: relative;
+  z-index: 2;
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
@@ -332,6 +341,8 @@ Error generating stack: `+o.message+`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
