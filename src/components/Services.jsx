@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
-import { useInView } from 'react-intersection-observer';
 import SEO from './SEO';
 import JsonLd from '../components/JsonLd';
 
@@ -85,10 +83,9 @@ const ServiceIcon = styled.i`
   font-size: 3.5rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
   display: inline-block;
   position: relative;
-  z-index: 2;
+  transition: transform 0.3s ease;
 
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -107,11 +104,34 @@ const ServiceCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 400px;
-  transition: all 0.3s ease;
   border: 1px solid #eee;
   position: relative;
-  overflow: hidden;
-  z-index: 2;
+  overflow: visible;
+  isolation: isolate;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+
+    ${ServiceIcon} {
+      transform: translateY(-5px);
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   @media (max-width: 768px) {
     min-height: 300px;
@@ -119,40 +139,10 @@ const ServiceCard = styled.div`
     background: #ffffff;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    z-index: 2;
   }
 
   @media (max-width: 480px) {
     min-height: 250px;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--primary-color);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-    z-index: 3;
-  }
-
-  &:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
-    &::before {
-      transform: scaleX(1);
-    }
-
-    ${ServiceIcon} {
-      transform: scale(1.1);
-      color: var(--primary-color);
-    }
   }
 `;
 
@@ -161,7 +151,7 @@ const ServiceTitle = styled.h3`
   font-size: 1.5rem;
   color: var(--primary-color);
   position: relative;
-  z-index: 2;
+  transition: color 0.3s ease;
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
@@ -176,7 +166,6 @@ const ServiceDescription = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   position: relative;
-  z-index: 2;
 
   @media (max-width: 768px) {
     font-size: 0.95rem;
@@ -222,34 +211,6 @@ const services = [
   },
 ];
 
-const AnimatedServiceCard = ({ children, index }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-    rootMargin: '50px',
-  });
-
-  const props = useSpring({
-    from: {
-      opacity: 0,
-      transform: 'translateY(50px)',
-    },
-    to: {
-      opacity: inView ? 1 : 0,
-      transform: inView ? 'translateY(0px)' : 'translateY(50px)',
-    },
-    delay: index * 100,
-    config: { mass: 1, tension: 170, friction: 26 },
-    immediate: window?.innerWidth <= 768,
-  });
-
-  return (
-    <animated.div ref={ref} style={props}>
-      {children}
-    </animated.div>
-  );
-};
-
 const servicesSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -278,15 +239,13 @@ const Services = () => {
         <SectionTitle>Our Services</SectionTitle>
         <ServiceGrid>
           {services.map((service, index) => (
-            <AnimatedServiceCard key={index} index={index}>
-              <ServiceCard>
-                <div>
-                  <ServiceIcon>{service.icon}</ServiceIcon>
-                  <ServiceTitle>{service.title}</ServiceTitle>
-                </div>
-                <ServiceDescription>{service.description}</ServiceDescription>
-              </ServiceCard>
-            </AnimatedServiceCard>
+            <ServiceCard>
+              <div>
+                <ServiceIcon>{service.icon}</ServiceIcon>
+                <ServiceTitle>{service.title}</ServiceTitle>
+              </div>
+              <ServiceDescription>{service.description}</ServiceDescription>
+            </ServiceCard>
           ))}
         </ServiceGrid>
       </div>
