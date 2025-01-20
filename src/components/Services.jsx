@@ -83,7 +83,6 @@ const ServiceGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
@@ -105,7 +104,6 @@ const ServiceCard = styled.div`
   justify-content: space-between;
   min-height: 400px;
   border: 1px solid #eee;
-  position: relative;
   z-index: 1;
 
   &:hover {
@@ -128,8 +126,6 @@ const ServiceIcon = styled.i`
   font-size: 3.5rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
-  display: inline-block;
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
@@ -142,7 +138,6 @@ const ServiceTitle = styled.h3`
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--primary-color);
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
@@ -155,7 +150,6 @@ const ServiceDescription = styled.p`
   line-height: 1.6;
   flex-grow: 1;
   overflow: hidden;
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {

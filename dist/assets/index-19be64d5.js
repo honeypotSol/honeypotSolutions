@@ -259,7 +259,6 @@ Error generating stack: `+o.message+`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
@@ -279,7 +278,6 @@ Error generating stack: `+o.message+`
   justify-content: space-between;
   min-height: 400px;
   border: 1px solid #eee;
-  position: relative;
   z-index: 1;
 
   &:hover {
@@ -300,8 +298,6 @@ Error generating stack: `+o.message+`
   font-size: 3.5rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
-  display: inline-block;
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
@@ -312,7 +308,6 @@ Error generating stack: `+o.message+`
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--primary-color);
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
@@ -323,7 +318,6 @@ Error generating stack: `+o.message+`
   line-height: 1.6;
   flex-grow: 1;
   overflow: hidden;
-  position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
