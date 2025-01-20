@@ -224,15 +224,23 @@ const services = [
 
 const AnimatedServiceCard = ({ children, index }) => {
   const [ref, inView] = useInView({
-    threshold: 0.2,
+    threshold: 0.1,
     triggerOnce: true,
+    rootMargin: '50px',
   });
 
   const props = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : 'translateY(50px)',
-    delay: index * 200,
-    config: { mass: 1, tension: 120, friction: 14 },
+    from: {
+      opacity: 0,
+      transform: 'translateY(50px)',
+    },
+    to: {
+      opacity: inView ? 1 : 0,
+      transform: inView ? 'translateY(0px)' : 'translateY(50px)',
+    },
+    delay: index * 100,
+    config: { mass: 1, tension: 170, friction: 26 },
+    immediate: window?.innerWidth <= 768,
   });
 
   return (
