@@ -174,7 +174,7 @@ const AnimatedWorkCard = ({ children, index }) => {
 const works = [
   {
     title: 'Gambling Website',
-    description: 'Gambling website with live betting',
+    description: 'Gambling website with live betting for Roshtein',
     longDescription:
       'A comprehensive gambling platform featuring live betting, and real-time odds updates for one of the most popular streamers in the world',
     image: '/img/Rosh.png',
@@ -182,7 +182,7 @@ const works = [
   },
   {
     title: 'E-commerce Website',
-    description: 'Redesigned e-commerce website',
+    description: 'Redesigned e-commerce website for Voursa',
     longDescription:
       'Redesigned e-commerce website with transaction on Arabic and French languages and payment processing',
     image: '/img/Voursa.png',
@@ -190,7 +190,8 @@ const works = [
   },
   {
     title: 'Fitness Mobile App',
-    description: 'A secure and user-friendly mobile Fitness application.',
+    description:
+      'A secure and user-friendly mobile Fitness application for JustFit.',
     longDescription:
       'Interactive fitness tracking application with workout plans, progress monitoring, and social features.',
     image: '/img/JustFit.png',
@@ -199,7 +200,7 @@ const works = [
   {
     title: 'Automobile Manufacturing Website',
     description:
-      'Clean and modern website for a Carbon Fibre component manufacturer',
+      'Clean and modern website for a Carbon Fibre component manufacturer for MV Composites',
     longDescription:
       'MV Composites is a Carbon Fibre component manufacturer working within Formula 1, Automotive and Sports sectors.',
     image: '/img/Mvcomposite.png',
@@ -207,7 +208,7 @@ const works = [
   },
   {
     title: 'Portfolio Website',
-    description: 'Creative portfolio website',
+    description: 'Creative portfolio website for JD',
     longDescription:
       'A clean and modern portfolio website for a Photographer and UI/UX Designer.',
     image: '/img/Portfolio.png',
