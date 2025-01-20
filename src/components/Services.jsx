@@ -93,26 +93,12 @@ const ServiceGrid = styled.div`
 `;
 
 const ServiceCard = styled.div`
-  background: #ffffff;
   padding: 2rem 1.5rem;
-  border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  height: 100%;
-  min-height: 400px;
 
   &:hover {
     cursor: default;
-  }
-
-  @media (max-width: 768px) {
-    min-height: 300px;
-    padding: 1.5rem;
-    background: #ffffff;
-  }
-
-  @media (max-width: 480px) {
-    min-height: 250px;
   }
 `;
 
