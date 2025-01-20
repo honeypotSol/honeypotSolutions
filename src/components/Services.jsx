@@ -23,14 +23,16 @@ const SectionTitle = styled.h2`
 
 const ServiceGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -40,11 +42,16 @@ const ServiceIcon = styled.i`
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const ServiceCard = styled.div`
   background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -52,12 +59,21 @@ const ServiceCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 450px;
+  min-height: 400px;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.5);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+
+  @media (max-width: 768px) {
+    min-height: 350px;
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 300px;
+  }
 
   &::before {
     content: '';
@@ -93,6 +109,10 @@ const ServiceTitle = styled.h3`
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--primary-color);
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const ServiceDescription = styled.p`
@@ -100,9 +120,14 @@ const ServiceDescription = styled.p`
   line-height: 1.6;
   flex-grow: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    -webkit-line-clamp: 5;
+  }
 `;
 
 const services = [
