@@ -184,47 +184,50 @@ Error generating stack: `+o.message+`
     color: white;
   }
 `,wO=()=>{const e={"@context":"https://schema.org","@type":"WebSite",name:"Honeypot Solutions",description:"Innovative Software Development for Your Business",url:"https://honeypot-solutions.com",potentialAction:{"@type":"ContactAction",target:"https://honeypot-solutions.com/#contact"}},t=xr({from:{opacity:0,transform:"translateY(-50px)"},to:{opacity:1,transform:"translateY(0)"},delay:300}),n=xr({from:{opacity:0,transform:"translateY(-30px)"},to:{opacity:1,transform:"translateY(0)"},delay:600}),r=xr({from:{opacity:0,transform:"translateY(30px)"},to:{opacity:1,transform:"translateY(0)"},delay:900});return _.createElement("div",null,_.createElement(mO,null,_.createElement(as,{data:e}),_.createElement(vO,{style:t},"Welcome to Honeypot Solutions"),_.createElement(gO,{style:n},"Innovative Software Development for Your Business"),_.createElement(yO,{style:r,to:"pricing",smooth:!0,duration:500,spy:!0,offset:-70},"Get Started")))},Vy=({title:e="Honeypot Solutions - Innovative Software Development",description:t="Custom software development solutions including web development, mobile apps, cloud solutions, and AI integration for businesses.",keywords:n="software development, web development, mobile apps, cloud solutions, AI, machine learning",image:r="/images/og-image.jpg",url:i="https://honeypot-solutions.com"})=>_.createElement(xg,null,_.createElement("title",null,e),_.createElement("meta",{name:"description",content:t}),_.createElement("meta",{name:"keywords",content:n}),_.createElement("meta",{property:"og:type",content:"website"}),_.createElement("meta",{property:"og:url",content:i}),_.createElement("meta",{property:"og:title",content:e}),_.createElement("meta",{property:"og:description",content:t}),_.createElement("meta",{property:"og:image",content:r}),_.createElement("meta",{name:"twitter:card",content:"summary_large_image"}),_.createElement("meta",{name:"twitter:url",content:i}),_.createElement("meta",{name:"twitter:title",content:e}),_.createElement("meta",{name:"twitter:description",content:t}),_.createElement("meta",{name:"twitter:image",content:r}),_.createElement("meta",{name:"robots",content:"index, follow"}),_.createElement("meta",{name:"language",content:"English"}),_.createElement("link",{rel:"canonical",href:i})),SO=z.section`
-  --bc: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  --bs: 2px;
-  --cs: 35px;
+  @media (min-width: 768px) {
+    --bc: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --bs: 2px;
+    --cs: 40px;
 
-  position: relative;
-  padding: 4rem 0;
-  margin: 2rem;
-  z-index: 1;
+    position: relative;
+    padding: 4rem 0;
+    margin: 2rem;
+    z-index: 1;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: calc(-1 * var(--bs));
-    background: var(--bc);
-    z-index: -1;
-    clip-path: polygon(
-      var(--cs) 0,
-      100% 0,
-      100% calc(100% - var(--cs)),
-      calc(50% + var(--cs)) calc(100% - var(--cs)),
-      50% 100%,
-      0% 100%,
-      0 var(--cs)
-    );
-  }
+    &::before {
+      content: '';
+      position: absolute;
+      inset: calc(-1 * var(--bs));
+      background: var(--bc);
+      z-index: -1;
+      clip-path: polygon(
+        var(--cs) 0,
+        100% 0,
+        100% calc(100% - var(--cs)),
+        calc(50% + var(--cs)) calc(100% - var(--cs)),
+        50% 100%,
+        0% 100%,
+        0 var(--cs)
+      );
+    }
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #fdfdff;
-    z-index: -1;
-    clip-path: polygon(
-      calc(var(--cs) + var(--bs) * 0.5) var(--bs),
-      calc(100% - var(--bs)) var(--bs),
-      calc(100% - var(--bs)) calc(100% - var(--cs) - var(--bs)),
-      calc(50% + var(--cs) - var(--bs) * 0.5) calc(100% - var(--cs) - var(--bs)),
-      calc(50% - var(--bs) * 0.5) calc(100% - var(--bs)),
-      var(--bs) calc(100% - var(--bs)),
-      var(--bs) calc(var(--cs) + var(--bs) * 0.5)
-    );
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #fdfdff;
+      z-index: -1;
+      clip-path: polygon(
+        calc(var(--cs) + var(--bs) * 0.5) var(--bs),
+        calc(100% - var(--bs)) var(--bs),
+        calc(100% - var(--bs)) calc(100% - var(--cs) - var(--bs)),
+        calc(50% + var(--cs) - var(--bs) * 0.5)
+          calc(100% - var(--cs) - var(--bs)),
+        calc(50% - var(--bs) * 0.5) calc(100% - var(--bs)),
+        var(--bs) calc(100% - var(--bs)),
+        var(--bs) calc(var(--cs) + var(--bs) * 0.5)
+      );
+    }
   }
 `,_O=z.h2`
   font-size: 2rem;
@@ -315,7 +318,7 @@ Error generating stack: `+o.message+`
   @media (max-width: 768px) {
     font-size: 0.95rem;
   }
-`,Qy=[{icon:"💻",title:"Web Development",description:"Custom web applications built with cutting-edge technologies like React, Next.js, and Node.js. We create everything from responsive business websites to complex enterprise solutions, ensuring performance, security, and user experience."},{icon:"📱",title:"Mobile App Development",description:"Native iOS/Android and cross-platform mobile applications using React Native. We deliver high-performance apps with native-like experience."},{icon:"🛍️",title:"E-commerce Solutions",description:"Comprehensive e-commerce solutions using Shopify, Wordpress, and custom platforms. We implement secure payment gateways, inventory management, multi-currency support, and analytics tracking. Our solutions help businesses scale their online presence."},{icon:"⚡",title:"API Development",description:"Robust and scalable REST and GraphQL APIs built with modern architecture principles. We create secure, and performant APIs that power your applications. Our solutions include authentication, rate limiting, caching strategies, and comprehensive API documentation."},{icon:"☁️",title:"Cloud Solutions",description:"Expert AWS and Google Cloud implementations for optimal scalability. We handle cloud migration, serverless architecture, and automated CI/CD pipelines. Our cloud solutions ensure high availability, disaster recovery, and optimal resource utilization."},{icon:"🎨",title:"UI/UX Design",description:"Professional UI/UX design services focusing on user-centered design principles. We create intuitive interfaces, engaging user experiences, and responsive designs. "}],PO={"@context":"https://schema.org","@type":"ItemList",itemListElement:Qy.map((e,t)=>({"@type":"Service",position:t+1,name:e.title,description:e.description,provider:{"@type":"Organization",name:"Honeypot Solutions"}}))},TO=()=>_.createElement(SO,null,_.createElement(as,{data:PO}),_.createElement(Vy,{title:"Our Services - Honeypot Solutions",description:"Explore our comprehensive software development services including web development, mobile apps, cloud solutions, UI/UX design.",keywords:"web development, mobile apps, cloud solutions, AI services"}),_.createElement("div",{className:"container"},_.createElement(_O,null,"Our Services"),_.createElement(EO,null,Qy.map((e,t)=>_.createElement(kO,null,_.createElement("div",null,_.createElement(bO,null,e.icon),_.createElement(OO,null,e.title)),_.createElement(CO,null,e.description))))));z.section`
+`,Qy=[{icon:"💻",title:"Web Development",description:"Custom web applications built with cutting-edge technologies like React, Next.js, and Node.js. We create everything from responsive business websites to complex enterprise solutions, ensuring performance, security, and user experience."},{icon:"📱",title:"Mobile App Development",description:"Native iOS/Android and cross-platform mobile applications using React Native. We deliver high-performance apps with native-like experience."},{icon:"🛍️",title:"E-commerce Solutions",description:"Comprehensive e-commerce solutions using Shopify, Wordpress, and custom platforms. We implement secure payment gateways, inventory management, multi-currency support, and analytics tracking. Our solutions help businesses scale their online presence."},{icon:"⚡",title:"API Development",description:"Robust and scalable REST and GraphQL APIs built with modern architecture principles. We create secure, and performant APIs that power your applications. Our solutions include authentication, rate limiting, caching strategies, and comprehensive API documentation."},{icon:"☁️",title:"Cloud Solutions",description:"Expert AWS and Google Cloud implementations for optimal scalability. We handle cloud migration, serverless architecture, and automated CI/CD pipelines. Our cloud solutions ensure high availability, disaster recovery, and optimal resource utilization."},{icon:"🎨",title:"UI/UX Design",description:"Professional UI/UX design services focusing on user-centered design principles. We create intuitive interfaces, engaging user experiences, and responsive designs. "}],PO={"@context":"https://schema.org","@type":"ItemList",itemListElement:Qy.map((e,t)=>({"@type":"Service",position:t+1,name:e.title,description:e.description,provider:{"@type":"Organization",name:"Honeypot Solutions"}}))},TO=()=>_.createElement(SO,null,_.createElement(as,{data:PO}),_.createElement(Vy,{title:"Our Services - Honeypot Solutions",description:"Explore our comprehensive software development services including web development, mobile apps, cloud solutions, UI/UX design.",keywords:"web development, mobile apps, cloud solutions, AI services"}),_.createElement("div",{className:"container"},_.createElement(_O,null,"Our Services"),_.createElement(EO,null,Qy.map((e,t)=>_.createElement(kO,{key:t},_.createElement("div",null,_.createElement(bO,null,e.icon),_.createElement(OO,null,e.title)),_.createElement(CO,null,e.description))))));z.section`
   padding: 4rem 0;
 `;z.h2`
   text-align: center;
