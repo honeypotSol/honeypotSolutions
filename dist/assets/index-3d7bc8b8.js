@@ -281,7 +281,6 @@ Error generating stack: `+o.message+`
   border: 1px solid #eee;
   position: relative;
   z-index: 1;
-  isolation: isolate;
 
   &:hover {
     cursor: default;
@@ -298,21 +297,30 @@ Error generating stack: `+o.message+`
     min-height: 250px;
   }
 `,bO=z.i`
-  font-size: 3.5rem;
+
+`,OO=z.h3`
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
   color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  display: inline-block;
   position: relative;
   z-index: 2;
 
   @media (max-width: 768px) {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
   }
-`,OO=z.h3`
-
 `,CO=z.p`
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
 `,Qy=[{icon:"💻",title:"Web Development",description:"Custom web applications built with cutting-edge technologies like React, Next.js, and Node.js. We create everything from responsive business websites to complex enterprise solutions, ensuring performance, security, and user experience."},{icon:"📱",title:"Mobile App Development",description:"Native iOS/Android and cross-platform mobile applications using React Native. We deliver high-performance apps with native-like experience."},{icon:"🛍️",title:"E-commerce Solutions",description:"Comprehensive e-commerce solutions using Shopify, Wordpress, and custom platforms. We implement secure payment gateways, inventory management, multi-currency support, and analytics tracking. Our solutions help businesses scale their online presence."},{icon:"⚡",title:"API Development",description:"Robust and scalable REST and GraphQL APIs built with modern architecture principles. We create secure, and performant APIs that power your applications. Our solutions include authentication, rate limiting, caching strategies, and comprehensive API documentation."},{icon:"☁️",title:"Cloud Solutions",description:"Expert AWS and Google Cloud implementations for optimal scalability. We handle cloud migration, serverless architecture, and automated CI/CD pipelines. Our cloud solutions ensure high availability, disaster recovery, and optimal resource utilization."},{icon:"🎨",title:"UI/UX Design",description:"Professional UI/UX design services focusing on user-centered design principles. We create intuitive interfaces, engaging user experiences, and responsive designs. "}],PO={"@context":"https://schema.org","@type":"ItemList",itemListElement:Qy.map((e,t)=>({"@type":"Service",position:t+1,name:e.title,description:e.description,provider:{"@type":"Organization",name:"Honeypot Solutions"}}))},TO=()=>_.createElement(SO,null,_.createElement(as,{data:PO}),_.createElement(Vy,{title:"Our Services - Honeypot Solutions",description:"Explore our comprehensive software development services including web development, mobile apps, cloud solutions, UI/UX design.",keywords:"web development, mobile apps, cloud solutions, AI services"}),_.createElement("div",{className:"container"},_.createElement(_O,null,"Our Services"),_.createElement(EO,null,Qy.map((e,t)=>_.createElement(kO,{key:t},_.createElement("div",null,_.createElement(bO,null,e.icon),_.createElement(OO,null,e.title)),_.createElement(CO,null,e.description))))));z.section`
   padding: 4rem 0;
 `;z.h2`
