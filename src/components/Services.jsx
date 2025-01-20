@@ -99,12 +99,7 @@ const ServiceCard = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   min-height: 400px;
-  border: 1px solid #eee;
-  z-index: 1;
 
   &:hover {
     cursor: default;
@@ -114,7 +109,6 @@ const ServiceCard = styled.div`
     min-height: 300px;
     padding: 1.5rem;
     background: #ffffff;
-    z-index: 1;
   }
 
   @media (max-width: 480px) {
