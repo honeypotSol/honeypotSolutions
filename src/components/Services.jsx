@@ -72,7 +72,7 @@ const ServiceCard = styled.div`
   }
 
   @media (max-width: 480px) {
-    min-height: 300px;
+    min-height: 390px;
   }
 
   &::before {

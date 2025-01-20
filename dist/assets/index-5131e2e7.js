@@ -235,7 +235,7 @@ Error generating stack: `+o.message+`
   }
 
   @media (max-width: 480px) {
-    min-height: 300px;
+    min-height: 390px;
   }
 
   &::before {
