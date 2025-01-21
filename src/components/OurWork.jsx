@@ -12,7 +12,7 @@ const OurWorkSection = styled.section`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
   color: var(--primary-color);

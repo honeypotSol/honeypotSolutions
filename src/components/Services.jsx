@@ -2,12 +2,50 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ServicesContainer = styled.div`
+  position: relative;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 60px auto;
+  padding: 100px 50px;
+  --border-color: #ff8c00;
+  --border-size: 3px;
+  --cut-size: 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--border-color);
+    clip-path: polygon(
+      var(--cut-size) 0,
+      100% 0,
+      100% calc(100% - var(--cut-size)),
+      calc(50% + var(--cut-size)) calc(100% - var(--cut-size)),
+      50% 100%,
+      0 100%,
+      0 var(--cut-size)
+    );
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: var(--border-size);
+    background: white;
+    clip-path: polygon(
+      var(--cut-size) 0,
+      100% 0,
+      100% calc(100% - var(--cut-size)),
+      calc(50% + var(--cut-size)) calc(100% - var(--cut-size)),
+      50% 100%,
+      0 100%,
+      0 var(--cut-size)
+    );
+  }
 `;
 
 const MainTitle = styled.h2`
+  position: relative;
+  z-index: 1;
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
@@ -16,6 +54,8 @@ const MainTitle = styled.h2`
 `;
 
 const ServicesGrid = styled.div`
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -33,7 +73,7 @@ const ServiceCard = styled.div`
   position: relative;
   background: white;
   border-radius: 8px;
-  height: 280px;
+  height: 320px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
