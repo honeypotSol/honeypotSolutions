@@ -129,7 +129,7 @@ const WorkOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 140, 0, 0.9);
+  background: var(--primary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -40,15 +40,15 @@ const ServicesGrid = styled.ul`
 const ServiceCard = styled.li`
   display: grid;
   grid-template:
-    "role"
-    "icon"
-    "title"
-    "descr";
+    'role'
+    'icon'
+    'title'
+    'descr';
   align-items: flex-start;
   gap: 1rem;
   padding-block-end: calc(var(--flapH) + 1rem);
   text-align: center;
-  background: ${props => props.accentColor};
+  background: ${(props) => props.accentColor};
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.6) var(--roleH),
     rgba(0, 0, 0, 0.4) calc(var(--roleH) + 0.5rem),
@@ -63,7 +63,7 @@ const ServiceCard = styled.li`
   );
 
   &::before {
-    content: "";
+    content: '';
     grid-area: role;
     height: var(--barH);
     width: calc(100% + var(--col-gap));
@@ -82,9 +82,9 @@ const ServiceCard = styled.li`
   }
 
   &::after {
-    content: "";
+    content: '';
     grid-area: role;
-    background: ${props => props.accentColor};
+    background: ${(props) => props.accentColor};
     background-image: linear-gradient(
       rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.2) 30%,
@@ -125,52 +125,52 @@ const ServiceDescription = styled.p`
   grid-area: descr;
 `;
 
-const Services = () => {
-  const services = [
-    {
-      icon: '💻',
-      title: 'Web Development',
-      description:
-        'Custom web applications built with cutting-edge technologies like React, Next.js, and Node.js. We create everything from responsive business websites to complex enterprise solutions.',
-      color: '#4A90E2'
-    },
-    {
-      icon: '📱',
-      title: 'Mobile App Development',
-      description:
-        'Native iOS/Android and cross-platform mobile applications using React Native. We deliver high-performance apps with native-like experience.',
-      color: '#50C878'
-    },
-    {
-      icon: '🛍️',
-      title: 'E-commerce Solutions',
-      description:
-        'Comprehensive e-commerce solutions using Shopify, Wordpress, and custom platforms. We implement secure payment gateways and inventory management.',
-      color: '#E24A86'
-    },
-    {
-      icon: '⚡',
-      title: 'API Development',
-      description:
-        'Robust and scalable REST and GraphQL APIs built with modern architecture principles. We create secure, and performant APIs that power your applications.',
-      color: '#FFB347'
-    },
-    {
-      icon: '☁️',
-      title: 'Cloud Solutions',
-      description:
-        'Expert AWS and Google Cloud implementations for optimal scalability. We handle cloud migration, serverless architecture, and automated CI/CD pipelines.',
-      color: '#9B59B6'
-    },
-    {
-      icon: '🎨',
-      title: 'UI/UX Design',
-      description:
-        'Professional UI/UX design services focusing on user-centered design principles. We create intuitive interfaces and engaging user experiences.',
-      color: '#E74C3C'
-    },
-  ];
+const services = [
+  {
+    icon: '💻',
+    title: 'Web Development',
+    description:
+      'Custom web applications built with cutting-edge technologies like React, Next.js, and Node.js. We create everything from responsive business websites to complex enterprise solutions.',
+    color: 'var(--primary-color)',
+  },
+  {
+    icon: '📱',
+    title: 'Mobile App Development',
+    description:
+      'Native iOS/Android and cross-platform mobile applications using React Native. We deliver high-performance apps with native-like experience.',
+    color: 'var(--primary-color)',
+  },
+  {
+    icon: '🛍️',
+    title: 'E-commerce Solutions',
+    description:
+      'Comprehensive e-commerce solutions using Shopify, Wordpress, and custom platforms. We implement secure payment gateways and inventory management.',
+    color: 'var(--primary-color)',
+  },
+  {
+    icon: '⚡',
+    title: 'API Development',
+    description:
+      'Robust and scalable REST and GraphQL APIs built with modern architecture principles. We create secure, and performant APIs that power your applications.',
+    color: 'var(--primary-color)',
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud Solutions',
+    description:
+      'Expert AWS and Google Cloud implementations for optimal scalability. We handle cloud migration, serverless architecture, and automated CI/CD pipelines.',
+    color: 'var(--primary-color)',
+  },
+  {
+    icon: '🎨',
+    title: 'UI/UX Design',
+    description:
+      'Professional UI/UX design services focusing on user-centered design principles. We create intuitive interfaces and engaging user experiences.',
+    color: 'var(--primary-color)',
+  },
+];
 
+const Services = () => {
   return (
     <ServicesContainer>
       <MainTitle>Our Services</MainTitle>
