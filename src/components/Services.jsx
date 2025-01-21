@@ -1,4 +1,96 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const ServicesContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+`;
+
+const MainTitle = styled.h2`
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #ff8c00;
+`;
+
+const ServicesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ServiceCard = styled.div`
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  height: 280px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 140, 0, 0.2);
+  }
+`;
+
+const ServiceContent = styled.div`
+  padding: 24px;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+`;
+
+const ServiceHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+`;
+
+const ServiceIcon = styled.span`
+  font-size: 2.5rem;
+`;
+
+const ServiceTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+`;
+
+const ServiceDescription = styled.p`
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+`;
+
+const ServiceOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 140, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  ${ServiceCard}:hover & {
+    opacity: 1;
+  }
+`;
 
 const Services = () => {
   const services = [
@@ -41,128 +133,23 @@ const Services = () => {
   ];
 
   return (
-    <div className="services-container">
-      <h2 className="main-title">Our Services</h2>
-      <div className="services-grid">
+    <ServicesContainer>
+      <MainTitle>Our Services</MainTitle>
+      <ServicesGrid>
         {services.map((service, index) => (
-          <div key={index} className="service-card">
-            <div className="service-content">
-              <div className="service-header">
-                <span className="service-icon">{service.icon}</span>
-                <h3 className="service-title">{service.title}</h3>
-              </div>
-              <p className="service-description">{service.description}</p>
-            </div>
-            <div className="service-overlay"></div>
-          </div>
+          <ServiceCard key={index}>
+            <ServiceContent>
+              <ServiceHeader>
+                <ServiceIcon>{service.icon}</ServiceIcon>
+                <ServiceTitle>{service.title}</ServiceTitle>
+              </ServiceHeader>
+              <ServiceDescription>{service.description}</ServiceDescription>
+            </ServiceContent>
+            <ServiceOverlay />
+          </ServiceCard>
         ))}
-      </div>
-
-      <style>{`
-        .services-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 40px 20px;
-        }
-
-        .main-title {
-          text-align: center;
-          font-size: 2.5rem;
-          font-weight: bold;
-          margin-bottom: 40px;
-          color: #ff8c00;
-        }
-
-        .services-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 30px;
-        }
-
-        .service-card {
-          position: relative;
-          background: white;
-          border-radius: 8px;
-          height: 280px;
-          overflow: hidden;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          cursor: pointer;
-        }
-
-        .service-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 16px rgba(255, 140, 0, 0.2);
-        }
-
-        .service-content {
-          padding: 24px;
-          height: 100%;
-          position: relative;
-          z-index: 1;
-        }
-
-        .service-header {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 16px;
-        }
-
-        .service-icon {
-          font-size: 2.5rem;
-        }
-
-        .service-title {
-          font-size: 1.25rem;
-          font-weight: 600;
-          margin: 0;
-          color: #333;
-        }
-
-        .service-description {
-          color: #666;
-          line-height: 1.6;
-          margin: 0;
-          font-size: 0.95rem;
-        }
-
-        .service-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(255, 140, 0, 0.1);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .service-card:hover .service-overlay {
-          opacity: 1;
-        }
-
-        @media (max-width: 1024px) {
-          .services-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .services-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .services-container {
-            padding: 20px 16px;
-          }
-          
-          .main-title {
-            font-size: 2rem;
-          }
-        }
-      `}</style>
-    </div>
+      </ServicesGrid>
+    </ServicesContainer>
   );
 };
 
