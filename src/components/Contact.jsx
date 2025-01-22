@@ -140,8 +140,6 @@ const NotificationPopup = styled(animated.div)`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -198,7 +196,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${API_URL}/api/send-email`, {
+      const response = await fetch(`${process.env.API_URL}/api/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
