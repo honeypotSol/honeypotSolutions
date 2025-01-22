@@ -81,8 +81,9 @@ const SubmitButton = styled.button`
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   transition: transform 0.3s ease, background-color 0.3s ease;
+  opacity: ${({ disabled }) => (disabled ? 0.7 : 1)};
 
   &:hover {
     background-color: var(--secondary-color);
@@ -92,6 +93,22 @@ const SubmitButton = styled.button`
   &:active {
     transform: translateY(0);
   }
+`;
+
+const LoadingSpinner = styled.span`
+  margin-left: 8px;
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
 `;
 
 const BookCallSection = styled.div`
@@ -109,6 +126,20 @@ const CalendlyWidget = styled.div`
   width: 100%;
 `;
 
+const NotificationPopup = styled(animated.div)`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  z-index: 1000;
+  background-color: ${({ status }) =>
+    status === 'success' ? '#48BB78' : '#F56565'};
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -116,10 +147,17 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [isCalendlyReady, setIsCalendlyReady] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const animationProps = useSpring({
     from: { opacity: 0, transform: 'translateY(30px)' },
     to: { opacity: 1, transform: 'translateY(0)' },
+    config: { tension: 280, friction: 20 },
+  });
+
+  const notificationAnimation = useSpring({
+    opacity: showNotification ? 1 : 0,
+    transform: showNotification ? 'translateY(0)' : 'translateY(100%)',
     config: { tension: 280, friction: 20 },
   });
 
@@ -174,14 +212,20 @@ const Contact = () => {
       if (!response.ok) throw new Error('Failed to send message');
 
       setSubmitStatus('success');
+      setShowNotification(true);
       setName('');
       setEmail('');
       setMessage('');
     } catch (error) {
       console.error('Error sending message:', error);
       setSubmitStatus('error');
+      setShowNotification(true);
     } finally {
       setIsSubmitting(false);
+      // Hide notification after 3 seconds
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
     }
   };
 
@@ -246,10 +290,23 @@ const Contact = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 required
               />
-              <SubmitButton type='submit'>Send Message</SubmitButton>
+              <SubmitButton type='submit' disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    Sending... <LoadingSpinner />
+                  </>
+                ) : (
+                  'Send Message'
+                )}
+              </SubmitButton>
             </ContactForm>
           </ContactGrid>
         </animated.div>
+        <NotificationPopup style={notificationAnimation} status={submitStatus}>
+          {submitStatus === 'success'
+            ? '✅ Message sent successfully!'
+            : '❌ Failed to send message. Please try again.'}
+        </NotificationPopup>
       </ContactContainer>
     </ContactSection>
   );
