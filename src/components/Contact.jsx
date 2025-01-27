@@ -206,7 +206,7 @@ const Contact = () => {
           name,
           email,
           message,
-          to: 'info@honeypot-solutions.com',
+          to: 'arkham1001@gmail.com',
         }),
       });
 
