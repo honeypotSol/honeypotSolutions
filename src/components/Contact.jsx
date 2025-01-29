@@ -196,8 +196,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const baseUrl = import.meta.env.VITE_API_URL || '';
-      const response = await fetch(`${baseUrl}/api/send-email`, {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -205,7 +204,8 @@ const Contact = () => {
         body: JSON.stringify({
           name,
           email,
-          message
+          message,
+          to: 'info@honeypot-solutions.com',
         }),
       });
 
@@ -222,7 +222,6 @@ const Contact = () => {
       setShowNotification(true);
     } finally {
       setIsSubmitting(false);
-      // Hide notification after 3 seconds
       setTimeout(() => {
         setShowNotification(false);
       }, 3000);
@@ -243,7 +242,7 @@ const Contact = () => {
               <CalendlyWidget>
                 {isCalendlyReady && (
                   <InlineWidget
-                    url='https://calendly.com/honeypot-solutions-info'
+                    url={import.meta.env.VITE_CALENDLY_URL}
                     styles={{
                       height: '700px',
                       width: '100%',
