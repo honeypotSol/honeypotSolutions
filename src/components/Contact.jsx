@@ -205,8 +205,7 @@ const Contact = () => {
         body: JSON.stringify({
           name,
           email,
-          message,
-          to: 'arkham1001@gmail.com',
+          message
         }),
       });
 
