@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-scroll';
-import { FaBars } from 'react-icons/fa';
-import JsonLd from '../components/JsonLd';
-import logo from '../../public/img/logo.png';
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import { Link } from "react-scroll";
+import { FaBars } from "react-icons/fa";
+import JsonLd from "../components/JsonLd";
+import logo from "../../public/img/logo.png";
 const Nav = styled.nav`
   background-color: rgba(255, 255, 255, 0.9);
   position: fixed;
@@ -45,7 +45,7 @@ const NavLinks = styled.ul`
   margin: 0;
 
   @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -108,32 +108,32 @@ const MenuButton = styled.button`
 `;
 
 const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
   itemListElement: [
     {
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: 1,
-      name: 'Home',
-      item: 'https://honeypot-solutions.com',
+      name: "Home",
+      item: "https://honeypot-solutions.com",
     },
     {
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: 2,
-      name: 'Services',
-      item: 'https://honeypot-solutions.com#services',
+      name: "Services",
+      item: "https://honeypot-solutions.com#services",
     },
     {
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: 3,
-      name: 'Pricing',
-      item: 'https://honeypot-solutions.com#pricing',
+      name: "Pricing",
+      item: "https://honeypot-solutions.com#pricing",
     },
     {
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: 4,
-      name: 'Contact',
-      item: 'https://honeypot-solutions.com#contact',
+      name: "Contact",
+      item: "https://honeypot-solutions.com#contact",
     },
   ],
 };
@@ -157,14 +157,14 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
 
     return () => {
-      document.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [scrolled]);
 
@@ -177,68 +177,68 @@ const Navbar = () => {
       ref={navRef}
       style={{
         boxShadow: scrolled
-          ? '0 4px 10px rgba(0, 0, 0, 0.1)'
-          : '0 2px 10px rgba(0, 0, 0, 0.1)',
+          ? "0 4px 10px rgba(0, 0, 0, 0.1)"
+          : "0 2px 10px rgba(0, 0, 0, 0.1)",
       }}
     >
       <JsonLd data={breadcrumbSchema} />
       <NavContainer>
-        <Logo src={logo} alt='Honeypot Solutions' />
+        <Logo src={logo} alt="Honeypot Solutions" />
         <MenuButton onClick={toggleMenu}>
           <FaBars />
         </MenuButton>
-        <NavLinks isOpen={isOpen}>
+        <NavLinks $isOpen={isOpen}>
           <NavItem>
             <NavLink
-              to='home'
+              to="home"
               smooth={true}
               duration={500}
               spy={true}
-              activeClass='active'
+              activeClass="active"
             >
               Home
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              to='services'
+              to="services"
               smooth={true}
               duration={500}
               spy={true}
-              activeClass='active'
+              activeClass="active"
             >
               Services
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              to='pricing'
+              to="pricing"
               smooth={true}
               duration={500}
               spy={true}
-              activeClass='active'
+              activeClass="active"
             >
               Pricing
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              to='contact'
+              to="contact"
               smooth={true}
               duration={500}
               spy={true}
-              activeClass='active'
+              activeClass="active"
             >
               Contact
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              to='faq'
+              to="faq"
               smooth={true}
               duration={500}
               spy={true}
-              activeClass='active'
+              activeClass="active"
             >
               FAQ
             </NavLink>

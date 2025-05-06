@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const FAQSection = styled.section`
   padding: 4rem 0;
@@ -52,8 +52,8 @@ const Question = styled.button`
 `;
 
 const Answer = styled.div`
-  padding: ${({ isOpen }) => (isOpen ? '1.5rem' : '0 1.5rem')};
-  max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
+  padding: ${({ $isOpen }) => ($isOpen ? "1.5rem" : "0 1.5rem")};
+  max-height: ${({ $isOpen }) => ($isOpen ? "500px" : "0")};
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   background-color: #f8f8f8;
@@ -61,40 +61,40 @@ const Answer = styled.div`
 `;
 
 const Icon = styled.span`
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
+  transform: ${({ $isOpen }) => ($isOpen ? "rotate(180deg)" : "rotate(0)")};
   transition: transform 0.3s ease;
 `;
 
 const faqs = [
   {
-    question: 'What services do you offer?',
+    question: "What services do you offer?",
     answer:
-      'We offer a comprehensive range of software development services including web development, mobile app development, cloud solutions, and UI/UX design. Our expertise spans across various technologies and frameworks to deliver custom solutions for your business needs.',
+      "We offer a comprehensive range of software development services including web development, mobile app development, cloud solutions, and UI/UX design. Our expertise spans across various technologies and frameworks to deliver custom solutions for your business needs.",
   },
   {
-    question: 'How long does it typically take to complete a project?',
+    question: "How long does it typically take to complete a project?",
     answer:
-      'Project timelines vary depending on the scope and complexity. A simple website might take 4-6 weeks, while a complex application could take 3-6 months. We provide detailed timelines during our initial consultation and keep you updated throughout the development process.',
+      "Project timelines vary depending on the scope and complexity. A simple website might take 4-6 weeks, while a complex application could take 3-6 months. We provide detailed timelines during our initial consultation and keep you updated throughout the development process.",
   },
   {
-    question: 'Do you provide ongoing support after project completion?',
+    question: "Do you provide ongoing support after project completion?",
     answer:
-      'Yes, we offer various support and maintenance packages to ensure your solution continues to perform optimally. Our Basic plan includes 1 month of support, while our Pro and Subscription plans include ongoing support and maintenance.',
+      "Yes, we offer various support and maintenance packages to ensure your solution continues to perform optimally. Our Basic plan includes 1 month of support, while our Pro and Subscription plans include ongoing support and maintenance.",
   },
   {
-    question: 'Can I upgrade my plan later?',
+    question: "Can I upgrade my plan later?",
     answer:
       "Absolutely! You can upgrade your plan at any time. We'll work with you to ensure a smooth transition and that all your needs are met with the new plan. Contact our support team to discuss upgrade options.",
   },
   {
-    question: 'How do you handle project communication?',
+    question: "How do you handle project communication?",
     answer:
       "We maintain clear and consistent communication through regular meetings, progress reports, and a dedicated project management platform. You'll have a direct line to your project manager and can expect weekly updates on progress.",
   },
   {
-    question: 'What technologies do you work with?',
+    question: "What technologies do you work with?",
     answer:
-      'We work with a wide range of modern technologies including React, Next.js, Angular, Node.js, NestJS, Python, Laravel, and more. Our team stays up-to-date with the latest technological advances to provide the best solutions for your needs.',
+      "We work with a wide range of modern technologies including React, Next.js, Angular, Node.js, NestJS, Python, Laravel, and more. Our team stays up-to-date with the latest technological advances to provide the best solutions for your needs.",
   },
 ];
 
@@ -106,7 +106,7 @@ const FAQ = () => {
   };
 
   return (
-    <FAQSection id='faq'>
+    <FAQSection id="faq">
       <Container>
         <SectionTitle>Frequently Asked Questions</SectionTitle>
         <FAQContainer>
@@ -114,9 +114,9 @@ const FAQ = () => {
             <FAQItem key={index}>
               <Question onClick={() => toggleFAQ(index)}>
                 {faq.question}
-                <Icon isOpen={openIndex === index}>▼</Icon>
+                <Icon $isOpen={openIndex === index}>▼</Icon>
               </Question>
-              <Answer isOpen={openIndex === index}>{faq.answer}</Answer>
+              <Answer $isOpen={openIndex === index}>{faq.answer}</Answer>
             </FAQItem>
           ))}
         </FAQContainer>
