@@ -16731,10 +16731,10 @@ const WS = de.section`
   GS = de.li`
   display: grid;
   grid-template:
-    'role'
-    'icon'
-    'title'
-    'descr';
+    "role"
+    "icon"
+    "title"
+    "descr";
   align-items: flex-start;
   gap: 1rem;
   padding-block-end: calc(var(--flapH) + 1rem);
@@ -16754,7 +16754,7 @@ const WS = de.section`
   );
 
   &::before {
-    content: '';
+    content: "";
     grid-area: role;
     height: var(--barH);
     width: calc(100% + var(--col-gap));
@@ -16773,7 +16773,7 @@ const WS = de.section`
   }
 
   &::after {
-    content: '';
+    content: "";
     grid-area: role;
     background: ${(n) => n.$accentColor};
     background-image: linear-gradient(
