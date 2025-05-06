@@ -7,6 +7,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# Wait a moment to ensure build files are written
+sleep 1
+
 # Add the generated files
 git add dist/
 
