@@ -7,10 +7,14 @@ updates:
     # Check for updates once a week
     schedule:
       interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/New_York'
     # Specify labels for pull requests
     labels:
       - 'dependencies'
       - 'npm'
+      - 'security'
     # Set version update strategy
     versioning-strategy: auto
     # Limit the number of open pull requests for version updates
@@ -22,6 +26,11 @@ updates:
       dependencies:
         patterns:
           - '*'
+      security-updates:
+        patterns:
+          - '*'
+        update-types:
+          - 'patch'
     # Specify reviewers for the pull requests
     reviewers:
       - 'aenima'
@@ -32,3 +41,14 @@ updates:
     commit-message:
       prefix: 'npm'
       include: 'scope'
+    ignore:
+      # Ignore major version updates for React
+      - dependency-name: 'react'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'react-dom'
+        update-types: ['version-update:semver-major']
+    # Add security update configuration
+    security-updates-only: false
+    # Add vulnerability alerts
+    vulnerability-alerts:
+      enabled: true
